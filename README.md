@@ -1,6 +1,6 @@
 flashgg
 =======
-
+#Joe's test repository
 Before you start, **please take note** of these warnings and comments:
 * **N.B.** Make sure you are on lxplus6 or otherwise using an SLC6 machine. Make sure SCRAM_ARCH is slc6_amd64_gcc491 (or later for 80X).
 * **N.B.** The setup script will check out many packages and take a while!
