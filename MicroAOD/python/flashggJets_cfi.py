@@ -124,6 +124,8 @@ def addFlashggPFCHSJets(process,
                                JetCollectionIndex = cms.uint32(vertexIndex),
                                Debug = cms.untracked.bool(debug),
                                DoPuJetID = cms.bool(True),
+                               IncludeConstituentInfo = cms.untracked.bool(True),
+                               #DoPuJetID = cms.bool(True)
                                ComputeRegVars = cms.bool(True),
                                MinPtForEneSum = cms.double(0.),
                                MaxEtaForEneSum = cms.double(2.5),
