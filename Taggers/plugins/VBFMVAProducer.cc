@@ -80,7 +80,134 @@ namespace flashgg {
 
         // add constituent jet info as a test
         float constit_energy_;
+        float n_constits_;
+
+        float lead_jet_pt_;
+        float test_lead_jet_eta_;
         
+        float lead_jet_c1_eta_;
+        float lead_jet_c2_eta_;
+        float lead_jet_c3_eta_;
+        float lead_jet_c4_eta_;
+        float lead_jet_c5_eta_;
+        float lead_jet_c6_eta_;
+        float lead_jet_c7_eta_;
+        float lead_jet_c8_eta_;
+        float lead_jet_c1_phi_;
+        float lead_jet_c2_phi_;
+        float lead_jet_c3_phi_;
+        float lead_jet_c4_phi_;
+        float lead_jet_c5_phi_;
+        float lead_jet_c6_phi_;
+        float lead_jet_c7_phi_;
+        float lead_jet_c8_phi_;
+        float lead_jet_c1_charge_;
+        float lead_jet_c2_charge_;
+        float lead_jet_c3_charge_;
+        float lead_jet_c4_charge_;
+        float lead_jet_c5_charge_;
+        float lead_jet_c6_charge_;
+        float lead_jet_c7_charge_;
+        float lead_jet_c8_charge_;
+        float lead_jet_c1_pt_;
+        float lead_jet_c2_pt_;
+        float lead_jet_c3_pt_;
+        float lead_jet_c4_pt_;
+        float lead_jet_c5_pt_;
+        float lead_jet_c6_pt_;
+        float lead_jet_c7_pt_;
+        float lead_jet_c8_pt_;
+        float lead_jet_c1_energy_;
+        float lead_jet_c2_energy_;
+        float lead_jet_c3_energy_;
+        float lead_jet_c4_energy_;
+        float lead_jet_c5_energy_;
+        float lead_jet_c6_energy_;
+        float lead_jet_c7_energy_;
+        float lead_jet_c8_energy_;
+
+        float sublead_jet_c1_eta_;
+        float sublead_jet_c2_eta_;
+        float sublead_jet_c3_eta_;
+        float sublead_jet_c4_eta_;
+        float sublead_jet_c5_eta_;
+        float sublead_jet_c6_eta_;
+        float sublead_jet_c7_eta_;
+        float sublead_jet_c8_eta_;
+        float sublead_jet_c1_phi_;
+        float sublead_jet_c2_phi_;
+        float sublead_jet_c3_phi_;
+        float sublead_jet_c4_phi_;
+        float sublead_jet_c5_phi_;
+        float sublead_jet_c6_phi_;
+        float sublead_jet_c7_phi_;
+        float sublead_jet_c8_phi_;
+        float sublead_jet_c1_charge_;
+        float sublead_jet_c2_charge_;
+        float sublead_jet_c3_charge_;
+        float sublead_jet_c4_charge_;
+        float sublead_jet_c5_charge_;
+        float sublead_jet_c6_charge_;
+        float sublead_jet_c7_charge_;
+        float sublead_jet_c8_charge_;
+        float sublead_jet_c1_pt_;
+        float sublead_jet_c2_pt_;
+        float sublead_jet_c3_pt_;
+        float sublead_jet_c4_pt_;
+        float sublead_jet_c5_pt_;
+        float sublead_jet_c6_pt_;
+        float sublead_jet_c7_pt_;
+        float sublead_jet_c8_pt_;
+        float sublead_jet_c1_energy_;
+        float sublead_jet_c2_energy_;
+        float sublead_jet_c3_energy_;
+        float sublead_jet_c4_energy_;
+        float sublead_jet_c5_energy_;
+        float sublead_jet_c6_energy_;
+        float sublead_jet_c7_energy_;
+        float sublead_jet_c8_energy_;
+
+        float subsublead_jet_c1_eta_;
+        float subsublead_jet_c2_eta_;
+        float subsublead_jet_c3_eta_;
+        float subsublead_jet_c4_eta_;
+        float subsublead_jet_c5_eta_;
+        float subsublead_jet_c6_eta_;
+        float subsublead_jet_c7_eta_;
+        float subsublead_jet_c8_eta_;
+        float subsublead_jet_c1_phi_;
+        float subsublead_jet_c2_phi_;
+        float subsublead_jet_c3_phi_;
+        float subsublead_jet_c4_phi_;
+        float subsublead_jet_c5_phi_;
+        float subsublead_jet_c6_phi_;
+        float subsublead_jet_c7_phi_;
+        float subsublead_jet_c8_phi_;
+        float subsublead_jet_c1_charge_;
+        float subsublead_jet_c2_charge_;
+        float subsublead_jet_c3_charge_;
+        float subsublead_jet_c4_charge_;
+        float subsublead_jet_c5_charge_;
+        float subsublead_jet_c6_charge_;
+        float subsublead_jet_c7_charge_;
+        float subsublead_jet_c8_charge_;
+        float subsublead_jet_c1_pt_;
+        float subsublead_jet_c2_pt_;
+        float subsublead_jet_c3_pt_;
+        float subsublead_jet_c4_pt_;
+        float subsublead_jet_c5_pt_;
+        float subsublead_jet_c6_pt_;
+        float subsublead_jet_c7_pt_;
+        float subsublead_jet_c8_pt_;
+        float subsublead_jet_c1_energy_;
+        float subsublead_jet_c2_energy_;
+        float subsublead_jet_c3_energy_;
+        float subsublead_jet_c4_energy_;
+        float subsublead_jet_c5_energy_;
+        float subsublead_jet_c6_energy_;
+        float subsublead_jet_c7_energy_;
+        float subsublead_jet_c8_energy_;
+
         float dipho_PToM_  ;
         float leadPho_PToM_;
         float sublPho_PToM_;
@@ -120,6 +247,135 @@ namespace flashgg {
         dijet_dy_         = -999.;
         cosThetaStar_     = -999.; 
         constit_energy_   = -999.; 
+      
+        n_constits_       = -999.;
+
+        lead_jet_pt_      = -999;
+        test_lead_jet_eta_      = -999;
+
+        lead_jet_c1_eta_  = -999.;
+        lead_jet_c2_eta_  = -999.;
+        lead_jet_c3_eta_  = -999.;
+        lead_jet_c4_eta_  = -999.;
+        lead_jet_c5_eta_  = -999.;
+        lead_jet_c6_eta_  = -999.;
+        lead_jet_c7_eta_  = -999.;
+        lead_jet_c8_eta_  = -999.;
+        lead_jet_c1_phi_  = -999.;
+        lead_jet_c2_phi_  = -999.;
+        lead_jet_c3_phi_  = -999.;
+        lead_jet_c4_phi_  = -999.;
+        lead_jet_c5_phi_  = -999.;
+        lead_jet_c6_phi_  = -999.;
+        lead_jet_c7_phi_  = -999.;
+        lead_jet_c8_phi_  = -999.;
+        lead_jet_c1_charge_ = -999.;
+        lead_jet_c2_charge_ = -999.;
+        lead_jet_c3_charge_ = -999.;
+        lead_jet_c4_charge_ = -999.;
+        lead_jet_c5_charge_ = -999.;
+        lead_jet_c6_charge_ = -999.;
+        lead_jet_c7_charge_ = -999.;
+        lead_jet_c8_charge_ = -999.;
+        lead_jet_c1_pt_ = -999.;
+        lead_jet_c2_pt_ = -999.;
+        lead_jet_c3_pt_ = -999.;
+        lead_jet_c4_pt_ = -999.;
+        lead_jet_c5_pt_ = -999.;
+        lead_jet_c6_pt_ = -999.;
+        lead_jet_c7_pt_ = -999.;
+        lead_jet_c8_pt_ = -999.;
+        lead_jet_c1_energy_ = -999.;
+        lead_jet_c2_energy_ = -999.;
+        lead_jet_c3_energy_ = -999.;
+        lead_jet_c4_energy_ = -999.;
+        lead_jet_c5_energy_ = -999.;
+        lead_jet_c6_energy_ = -999.;
+        lead_jet_c7_energy_ = -999.;
+        lead_jet_c8_energy_ = -999.;
+
+        sublead_jet_c1_eta_  = -999.;
+        sublead_jet_c2_eta_  = -999.;
+        sublead_jet_c3_eta_  = -999.;
+        sublead_jet_c4_eta_  = -999.;
+        sublead_jet_c5_eta_  = -999.;
+        sublead_jet_c6_eta_  = -999.;
+        sublead_jet_c7_eta_  = -999.;
+        sublead_jet_c8_eta_  = -999.;
+        sublead_jet_c1_phi_  = -999.;
+        sublead_jet_c2_phi_  = -999.;
+        sublead_jet_c3_phi_  = -999.;
+        sublead_jet_c4_phi_  = -999.;
+        sublead_jet_c5_phi_  = -999.;
+        sublead_jet_c6_phi_  = -999.;
+        sublead_jet_c7_phi_  = -999.;
+        sublead_jet_c8_phi_  = -999.;
+        sublead_jet_c1_charge_ = -999.;
+        sublead_jet_c2_charge_ = -999.;
+        sublead_jet_c3_charge_ = -999.;
+        sublead_jet_c4_charge_ = -999.;
+        sublead_jet_c5_charge_ = -999.;
+        sublead_jet_c6_charge_ = -999.;
+        sublead_jet_c7_charge_ = -999.;
+        sublead_jet_c8_charge_ = -999.;
+        sublead_jet_c1_pt_ = -999.;
+        sublead_jet_c2_pt_ = -999.;
+        sublead_jet_c3_pt_ = -999.;
+        sublead_jet_c4_pt_ = -999.;
+        sublead_jet_c5_pt_ = -999.;
+        sublead_jet_c6_pt_ = -999.;
+        sublead_jet_c7_pt_ = -999.;
+        sublead_jet_c8_pt_ = -999.;
+        sublead_jet_c1_energy_ = -999.;
+        sublead_jet_c2_energy_ = -999.;
+        sublead_jet_c3_energy_ = -999.;
+        sublead_jet_c4_energy_ = -999.;
+        sublead_jet_c5_energy_ = -999.;
+        sublead_jet_c6_energy_ = -999.;
+        sublead_jet_c7_energy_ = -999.;
+        sublead_jet_c8_energy_ = -999.;
+
+        subsublead_jet_c1_eta_  = -999.;
+        subsublead_jet_c2_eta_  = -999.;
+        subsublead_jet_c3_eta_  = -999.;
+        subsublead_jet_c4_eta_  = -999.;
+        subsublead_jet_c5_eta_  = -999.;
+        subsublead_jet_c6_eta_  = -999.;
+        subsublead_jet_c7_eta_  = -999.;
+        subsublead_jet_c8_eta_  = -999.;
+        subsublead_jet_c1_phi_  = -999.;
+        subsublead_jet_c2_phi_  = -999.;
+        subsublead_jet_c3_phi_  = -999.;
+        subsublead_jet_c4_phi_  = -999.;
+        subsublead_jet_c5_phi_  = -999.;
+        subsublead_jet_c6_phi_  = -999.;
+        subsublead_jet_c7_phi_  = -999.;
+        subsublead_jet_c8_phi_  = -999.;
+        subsublead_jet_c1_charge_ = -999.;
+        subsublead_jet_c2_charge_ = -999.;
+        subsublead_jet_c3_charge_ = -999.;
+        subsublead_jet_c4_charge_ = -999.;
+        subsublead_jet_c5_charge_ = -999.;
+        subsublead_jet_c6_charge_ = -999.;
+        subsublead_jet_c7_charge_ = -999.;
+        subsublead_jet_c8_charge_ = -999.;
+        subsublead_jet_c1_pt_ = -999.;
+        subsublead_jet_c2_pt_ = -999.;
+        subsublead_jet_c3_pt_ = -999.;
+        subsublead_jet_c4_pt_ = -999.;
+        subsublead_jet_c5_pt_ = -999.;
+        subsublead_jet_c6_pt_ = -999.;
+        subsublead_jet_c7_pt_ = -999.;
+        subsublead_jet_c8_pt_ = -999.;
+        subsublead_jet_c1_energy_ = -999.;
+        subsublead_jet_c2_energy_ = -999.;
+        subsublead_jet_c3_energy_ = -999.;
+        subsublead_jet_c4_energy_ = -999.;
+        subsublead_jet_c5_energy_ = -999.;
+        subsublead_jet_c6_energy_ = -999.;
+        subsublead_jet_c7_energy_ = -999.;
+        subsublead_jet_c8_energy_ = -999.;
+
         dipho_PToM_       = -999.;
         leadPho_PToM_     = -999.;
         sublPho_PToM_     = -999.;
@@ -203,11 +459,138 @@ namespace flashgg {
             dijet_centrality_g_  = -999.;
             cosThetaStar_     = -999.; 
             constit_energy_   = -999;
+
+            n_constits_       = -999.;
+            lead_jet_pt_      = -999;
+            test_lead_jet_eta_      = -999;
+            
+            lead_jet_c1_eta_  = -999.;
+            lead_jet_c2_eta_  = -999.;
+            lead_jet_c3_eta_  = -999.;
+            lead_jet_c4_eta_  = -999.;
+            lead_jet_c5_eta_  = -999.;
+            lead_jet_c6_eta_  = -999.;
+            lead_jet_c7_eta_  = -999.;
+            lead_jet_c8_eta_  = -999.;
+            lead_jet_c1_phi_  = -999.;
+            lead_jet_c2_phi_  = -999.;
+            lead_jet_c3_phi_  = -999.;
+            lead_jet_c4_phi_  = -999.;
+            lead_jet_c5_phi_  = -999.;
+            lead_jet_c6_phi_  = -999.;
+            lead_jet_c7_phi_  = -999.;
+            lead_jet_c8_phi_  = -999.;
+            lead_jet_c1_charge_ = -999.;
+            lead_jet_c2_charge_ = -999.;
+            lead_jet_c3_charge_ = -999.;
+            lead_jet_c4_charge_ = -999.;
+            lead_jet_c5_charge_ = -999.;
+            lead_jet_c6_charge_ = -999.;
+            lead_jet_c7_charge_ = -999.;
+            lead_jet_c8_charge_ = -999.;
+            lead_jet_c1_pt_ = -999.;
+            lead_jet_c2_pt_ = -999.;
+            lead_jet_c3_pt_ = -999.;
+            lead_jet_c4_pt_ = -999.;
+            lead_jet_c5_pt_ = -999.;
+            lead_jet_c6_pt_ = -999.;
+            lead_jet_c7_pt_ = -999.;
+            lead_jet_c8_pt_ = -999.;
+            lead_jet_c1_energy_ = -999.;
+            lead_jet_c2_energy_ = -999.;
+            lead_jet_c3_energy_ = -999.;
+            lead_jet_c4_energy_ = -999.;
+            lead_jet_c5_energy_ = -999.;
+            lead_jet_c6_energy_ = -999.;
+            lead_jet_c7_energy_ = -999.;
+            lead_jet_c8_energy_ = -999.;
+            
+            sublead_jet_c1_eta_  = -999.;
+            sublead_jet_c2_eta_  = -999.;
+            sublead_jet_c3_eta_  = -999.;
+            sublead_jet_c4_eta_  = -999.;
+            sublead_jet_c5_eta_  = -999.;
+            sublead_jet_c6_eta_  = -999.;
+            sublead_jet_c7_eta_  = -999.;
+            sublead_jet_c8_eta_  = -999.;
+            sublead_jet_c1_phi_  = -999.;
+            sublead_jet_c2_phi_  = -999.;
+            sublead_jet_c3_phi_  = -999.;
+            sublead_jet_c4_phi_  = -999.;
+            sublead_jet_c5_phi_  = -999.;
+            sublead_jet_c6_phi_  = -999.;
+            sublead_jet_c7_phi_  = -999.;
+            sublead_jet_c8_phi_  = -999.;
+            sublead_jet_c1_charge_ = -999.;
+            sublead_jet_c2_charge_ = -999.;
+            sublead_jet_c3_charge_ = -999.;
+            sublead_jet_c4_charge_ = -999.;
+            sublead_jet_c5_charge_ = -999.;
+            sublead_jet_c6_charge_ = -999.;
+            sublead_jet_c7_charge_ = -999.;
+            sublead_jet_c8_charge_ = -999.;
+            sublead_jet_c1_pt_ = -999.;
+            sublead_jet_c2_pt_ = -999.;
+            sublead_jet_c3_pt_ = -999.;
+            sublead_jet_c4_pt_ = -999.;
+            sublead_jet_c5_pt_ = -999.;
+            sublead_jet_c6_pt_ = -999.;
+            sublead_jet_c7_pt_ = -999.;
+            sublead_jet_c8_pt_ = -999.;
+            sublead_jet_c1_energy_ = -999.;
+            sublead_jet_c2_energy_ = -999.;
+            sublead_jet_c3_energy_ = -999.;
+            sublead_jet_c4_energy_ = -999.;
+            sublead_jet_c5_energy_ = -999.;
+            sublead_jet_c6_energy_ = -999.;
+            sublead_jet_c7_energy_ = -999.;
+            sublead_jet_c8_energy_ = -999.;
+
+            subsublead_jet_c1_eta_  = -999.;
+            subsublead_jet_c2_eta_  = -999.;
+            subsublead_jet_c3_eta_  = -999.;
+            subsublead_jet_c4_eta_  = -999.;
+            subsublead_jet_c5_eta_  = -999.;
+            subsublead_jet_c6_eta_  = -999.;
+            subsublead_jet_c7_eta_  = -999.;
+            subsublead_jet_c8_eta_  = -999.;
+            subsublead_jet_c1_phi_  = -999.;
+            subsublead_jet_c2_phi_  = -999.;
+            subsublead_jet_c3_phi_  = -999.;
+            subsublead_jet_c4_phi_  = -999.;
+            subsublead_jet_c5_phi_  = -999.;
+            subsublead_jet_c6_phi_  = -999.;
+            subsublead_jet_c7_phi_  = -999.;
+            subsublead_jet_c8_phi_  = -999.;
+            subsublead_jet_c1_charge_ = -999.;
+            subsublead_jet_c2_charge_ = -999.;
+            subsublead_jet_c3_charge_ = -999.;
+            subsublead_jet_c4_charge_ = -999.;
+            subsublead_jet_c5_charge_ = -999.;
+            subsublead_jet_c6_charge_ = -999.;
+            subsublead_jet_c7_charge_ = -999.;
+            subsublead_jet_c8_charge_ = -999.;
+            subsublead_jet_c1_pt_ = -999.;
+            subsublead_jet_c2_pt_ = -999.;
+            subsublead_jet_c3_pt_ = -999.;
+            subsublead_jet_c4_pt_ = -999.;
+            subsublead_jet_c5_pt_ = -999.;
+            subsublead_jet_c6_pt_ = -999.;
+            subsublead_jet_c7_pt_ = -999.;
+            subsublead_jet_c8_pt_ = -999.;
+            subsublead_jet_c1_energy_ = -999.;
+            subsublead_jet_c2_energy_ = -999.;
+            subsublead_jet_c3_energy_ = -999.;
+            subsublead_jet_c4_energy_ = -999.;
+            subsublead_jet_c5_energy_ = -999.;
+            subsublead_jet_c6_energy_ = -999.;
+            subsublead_jet_c7_energy_ = -999.;
+            subsublead_jet_c8_energy_ = -999.;
+
             dipho_PToM_       = -999.;
             leadPho_PToM_     = -999.;
             sublPho_PToM_     = -999.;
            
- 
             // First find dijet by looking for highest-pt jets...
             std::pair <int, int>     dijet_indices( -1, -1 );
             std::pair <float, float> dijet_pts( -1., -1. );
@@ -318,21 +701,299 @@ namespace flashgg {
                     dijet_indices.second = jetLoop;
                     dijet_pts.second     = jet->pt();
                     
-                }else if( jet->pt() > jet_3_pt ){//&& dijet_indices.first != int(jetLoop) && dijet_indices.second != int(jetLoop)){
+                }else if( jet->pt() > jet_3_pt ){//&& dijet_indices.first != int(jetLoop) && dijet_indices.second != int(jetLoop))
                     jet_3_index = jetLoop;
                     jet_3_pt    = jet->pt();
                 }
                 if( jet->pt() > 30.0 ){
                   n_jets_count++;
-                  unsigned nConstituents = jet->numberOfSourceCandidatePtrs();
-                  std::cout << nConstituents << std::endl;
-                  fjet.setConstituentInfo(*patJet);
-                  std::cout << fjet.hasConstituentInfo() << std::endl;
+                  if(n_jets_count==1){
+                    lead_jet_pt_ = jet->pt();
+                    test_lead_jet_eta_ = jet->eta();
+                  }
+                  //std::cout << "n_jets_count = : " << n_jets_count <<std::endl;
+                  //std::cout << "JET pt is " << jet->pt() << std::endl;
+                  if (fjet.hasConstituentInfo()) {
+
+                    std::vector<float> theConstitInfo = fjet.getConstituentInfo();
+                    constit_energy_ = theConstitInfo[0];
+                    unsigned int nConstituents = (theConstitInfo.size())/5;
+                    //std::cout << "nConstits: " << nConstituents << std::endl; 
+                    n_constits_ = nConstituents;
+
+                    std::vector<float> etaVec;
+                    std::vector<float> phiVec;
+                    std::vector<float> chargeVec;
+                    std::vector<float> ptVec;
+                    std::vector<float> energyVec;
+
+                    int index = 5;
+                    unsigned int i =0;
+                    //unsigned int nConstitsAbovePt = 0; 
+
+                    for(i=0; i<nConstituents; i++){
+                      index = 5*i;
+                      //std::cout << "constit: " << i << std::endl;
+                      //std::cout << "so indexer is: " << index << std::endl;
+                      //std::cout << "eta: " << theConstitInfo[index]<< std::endl;
+                      //std::cout << "phi: " << theConstitInfo[index+1]<< std::endl;
+                      //std::cout << "charge: " << theConstitInfo[index+2]<< std::endl;
+                      //std::cout << "pt: " << theConstitInfo[index+3]<< std::endl;
+                      //std::cout << "energy: " << theConstitInfo[index+4]<< std::endl;
+                      //std::cout << "the JET pt is: " << jet->pt() << std::endl;
+                      //if( (theConstitInfo[index+3]/jet->pt()) > 0.05 ){
+                      // fill vectors and unpack it later
+                        //nConstitsAbovePt++;
+                        etaVec.push_back(theConstitInfo[index]);
+                        phiVec.push_back(theConstitInfo[index+1]);
+                        chargeVec.push_back(theConstitInfo[index+2]);
+                        ptVec.push_back(theConstitInfo[index+3]);
+                        energyVec.push_back(theConstitInfo[index+4]);
+                      //}
+                      
+                    }
+                    //std::cout << "number of constits passing pt threshol: " << nConstitsAbovePt << std::endl;
+                    //Now do a switch statement to unpack vectors
+                    if(n_jets_count==1){//leading jet since pts are ordered
+                      for(unsigned int i = 0; i< 8; i++){
+                        //std::cout << "the counter inside lead jet loop is at: " << i << std::endl;
+                        if(i==0){
+                          //fill lead jet constit 1
+                          //std::cout << "filled lead constit 1" << std::endl;
+                          lead_jet_c1_eta_ = etaVec[i];
+                          lead_jet_c1_phi_ = phiVec[i];
+                          lead_jet_c1_charge_ = chargeVec[i];
+                          lead_jet_c1_pt_ = ptVec[i];
+                          lead_jet_c1_energy_ = energyVec[i];
+                        }
+                        if(i==1){
+                          //fill lead jet constit 2
+                          //std::cout << "filled lead constit 2" << std::endl;
+                          lead_jet_c2_eta_ = etaVec[i];
+                          lead_jet_c2_phi_ = phiVec[i];
+                          lead_jet_c2_charge_ = chargeVec[i];
+                          lead_jet_c2_pt_ = ptVec[i];
+                          lead_jet_c2_energy_ = energyVec[i];
+                        }
+                        if(i==2){
+                          //fill lead jet constit 3
+                          //std::cout << "filled lead constit 3" << std::endl;
+                          lead_jet_c3_eta_ = etaVec[i];
+                          lead_jet_c3_phi_ = phiVec[i];
+                          lead_jet_c3_charge_ = chargeVec[i];
+                          lead_jet_c3_pt_ = ptVec[i];
+                          lead_jet_c3_energy_ = energyVec[i];
+                        }
+                        if(i==3){
+                          //fill lead jet constit 4
+                          //std::cout << "filled lead constit 4" << std::endl;
+                          lead_jet_c4_eta_ = etaVec[i];
+                          lead_jet_c4_phi_ = phiVec[i];
+                          lead_jet_c4_charge_ = chargeVec[i];
+                          lead_jet_c4_pt_ = ptVec[i];
+                          lead_jet_c4_energy_ = energyVec[i];
+                        }
+                        if(i==4){
+                          //fill lead jet constit 5
+                          //std::cout << "filled lead constit 5" << std::endl;
+                          lead_jet_c5_eta_ = etaVec[i];
+                          lead_jet_c5_phi_ = phiVec[i];
+                          lead_jet_c5_charge_ = chargeVec[i];
+                          lead_jet_c5_pt_ = ptVec[i];
+                          lead_jet_c5_energy_ = energyVec[i];
+                        }
+                        if(i==5){
+                          //fill lead jet constit 6
+                          //std::cout << "filled lead constit 6" << std::endl;
+                          lead_jet_c6_eta_ = etaVec[i];
+                          lead_jet_c6_phi_ = phiVec[i];
+                          lead_jet_c6_charge_ = chargeVec[i];
+                          lead_jet_c6_pt_ = ptVec[i];
+                          lead_jet_c6_energy_ = energyVec[i];
+                        }
+                        if(i==6){
+                          //fill lead jet constit 7
+                          //std::cout << "filled lead constit 7" << std::endl;
+                          lead_jet_c7_eta_ = etaVec[i];
+                          lead_jet_c7_phi_ = phiVec[i];
+                          lead_jet_c7_charge_ = chargeVec[i];
+                          lead_jet_c7_pt_ = ptVec[i];
+                          lead_jet_c7_energy_ = energyVec[i];
+                        }
+                        if(i==7){
+                          //fill lead jet constit 8
+                          //std::cout << "filled lead constit 8" << std::endl;
+                          lead_jet_c8_eta_ = etaVec[i];
+                          lead_jet_c8_phi_ = phiVec[i];
+                          lead_jet_c8_charge_ = chargeVec[i];
+                          lead_jet_c8_pt_ = ptVec[i];
+                          lead_jet_c8_energy_ = energyVec[i];
+                        }
+                      } 
+                    }
+                    if(n_jets_count==2){//subleading jet since pts are ordered
+                      for(unsigned int i = 0; i< 8; i++){
+                        //std::cout << "the counter inside sub lead jet loop is at: " << i << std::endl;
+                        if(i==0){
+                          //fill lead jet constit 1
+                          //std::cout << "filled sub lead constit 1" << std::endl;
+                          sublead_jet_c1_eta_ = etaVec[i];
+                          sublead_jet_c1_phi_ = phiVec[i];
+                          sublead_jet_c1_charge_ = chargeVec[i];
+                          sublead_jet_c1_pt_ = ptVec[i];
+                          sublead_jet_c1_energy_ = energyVec[i];
+                          }
+                        if(i==1){
+                          //fill lead jet constit 2
+                          //std::cout << "filled sub lead constit 2" << std::endl;
+                          sublead_jet_c2_eta_ = etaVec[i];
+                          sublead_jet_c2_phi_ = phiVec[i];
+                          sublead_jet_c2_charge_ = chargeVec[i];
+                          sublead_jet_c2_pt_ = ptVec[i];
+                          sublead_jet_c2_energy_ = energyVec[i];
+                          }
+                        if(i==2){
+                          //fill lead jet constit 3
+                          //std::cout << "filled sub lead constit 3" << std::endl;
+                          sublead_jet_c3_eta_ = etaVec[i];
+                          sublead_jet_c3_phi_ = phiVec[i];
+                          sublead_jet_c3_charge_ = chargeVec[i];
+                          sublead_jet_c3_pt_ = ptVec[i];
+                          sublead_jet_c3_energy_ = energyVec[i];
+                          }
+                        if(i==3){
+                          //fill lead jet constit 4
+                          //std::cout << "filled sub lead constit 4" << std::endl;
+                          sublead_jet_c4_eta_ = etaVec[i];
+                          sublead_jet_c4_phi_ = phiVec[i];
+                          sublead_jet_c4_charge_ = chargeVec[i];
+                          sublead_jet_c4_pt_ = ptVec[i];
+                          sublead_jet_c4_energy_ = energyVec[i];
+                          }
+                        if(i==4){
+                          //fill lead jet constit 5
+                          //std::cout << "filled sub lead constit 5" << std::endl;
+                          sublead_jet_c5_eta_ = etaVec[i];
+                          sublead_jet_c5_phi_ = phiVec[i];
+                          sublead_jet_c5_charge_ = chargeVec[i];
+                          sublead_jet_c5_pt_ = ptVec[i];
+                          sublead_jet_c5_energy_ = energyVec[i];
+                          }
+                        if(i==5){
+                          //fill lead jet constit 6
+                          //std::cout << "filled sub lead constit 6" << std::endl;
+                          sublead_jet_c6_eta_ = etaVec[i];
+                          sublead_jet_c6_phi_ = phiVec[i];
+                          sublead_jet_c6_charge_ = chargeVec[i];
+                          sublead_jet_c6_pt_ = ptVec[i];
+                          sublead_jet_c6_energy_ = energyVec[i];
+                          }
+                        if(i==6){
+                          //fill lead jet constit 7
+                          //std::cout << "filled sub lead constit 7" << std::endl;
+                          sublead_jet_c7_eta_ = etaVec[i];
+                          sublead_jet_c7_phi_ = phiVec[i];
+                          sublead_jet_c7_charge_ = chargeVec[i];
+                          sublead_jet_c7_pt_ = ptVec[i];
+                          sublead_jet_c7_energy_ = energyVec[i];
+                          }
+                        if(i==7){
+                          //fill lead jet constit 8
+                          //std::cout << "filled sub lead constit 8" << std::endl;
+                          sublead_jet_c8_eta_ = etaVec[i];
+                          sublead_jet_c8_phi_ = phiVec[i];
+                          sublead_jet_c8_charge_ = chargeVec[i];
+                          sublead_jet_c8_pt_ = ptVec[i];
+                          sublead_jet_c8_energy_ = energyVec[i];
+                        }
+                      } 
+                    }
+                    if(n_jets_count==3){//subleading jet since pts are ordered
+                      for(unsigned int i = 0; i<8 ; i++){
+                        //std::cout << "the counter inside sub sub lead jet loop is at: " << i << std::endl;
+                        if(i==0){
+                          //fill lead jet constit 1
+                          //std::cout << "filled sub sub lead constit 1" << std::endl;
+                          subsublead_jet_c1_eta_ = etaVec[i];
+                          subsublead_jet_c1_phi_ = phiVec[i];
+                          subsublead_jet_c1_charge_ = chargeVec[i];
+                          subsublead_jet_c1_pt_ = ptVec[i];
+                          subsublead_jet_c1_energy_ = energyVec[i];
+                          }
+                        if(i==1){
+                          //fill lead jet constit 2
+                          //std::cout << "filled sub sub lead constit 2" << std::endl;
+                          subsublead_jet_c2_eta_ = etaVec[i];
+                          subsublead_jet_c2_phi_ = phiVec[i];
+                          subsublead_jet_c2_charge_ = chargeVec[i];
+                          subsublead_jet_c2_pt_ = ptVec[i];
+                          subsublead_jet_c2_energy_ = energyVec[i];
+                          }
+                        if(i==2){
+                          //fill lead jet constit 3
+                          //std::cout << "filled sub sub lead constit 3" << std::endl;
+                          subsublead_jet_c3_eta_ = etaVec[i];
+                          subsublead_jet_c3_phi_ = phiVec[i];
+                          subsublead_jet_c3_charge_ = chargeVec[i];
+                          subsublead_jet_c3_pt_ = ptVec[i];
+                          subsublead_jet_c3_energy_ = energyVec[i];
+                          }
+                        if(i==3){
+                          //fill lead jet constit 4
+                          //std::cout << "filled sub sub lead constit 4" << std::endl;
+                          subsublead_jet_c4_eta_ = etaVec[i];
+                          subsublead_jet_c4_phi_ = phiVec[i];
+                          subsublead_jet_c4_charge_ = chargeVec[i];
+                          subsublead_jet_c4_pt_ = ptVec[i];
+                          subsublead_jet_c4_energy_ = energyVec[i];
+                          }
+                        if(i==4){
+                          //fill lead jet constit 5
+                          //std::cout << "filled sub sub lead constit 5" << std::endl;
+                          subsublead_jet_c5_eta_ = etaVec[i];
+                          subsublead_jet_c5_phi_ = phiVec[i];
+                          subsublead_jet_c5_charge_ = chargeVec[i];
+                          subsublead_jet_c5_pt_ = ptVec[i];
+                          subsublead_jet_c5_energy_ = energyVec[i];
+                          }
+                        if(i==5){
+                          //fill lead jet constit 6
+                          //std::cout << "filled sub sub lead constit 6" << std::endl;
+                          subsublead_jet_c6_eta_ = etaVec[i];
+                          subsublead_jet_c6_phi_ = phiVec[i];
+                          subsublead_jet_c6_charge_ = chargeVec[i];
+                          subsublead_jet_c6_pt_ = ptVec[i];
+                          subsublead_jet_c6_energy_ = energyVec[i];
+                          }
+                        if(i==6){
+                          //fill lead jet constit 7
+                          //std::cout << "filled sub sub lead constit 7" << std::endl;
+                          subsublead_jet_c7_eta_ = etaVec[i];
+                          subsublead_jet_c7_phi_ = phiVec[i];
+                          subsublead_jet_c7_charge_ = chargeVec[i];
+                          subsublead_jet_c7_pt_ = ptVec[i];
+                          subsublead_jet_c7_energy_ = energyVec[i];
+                          }
+                        if(i==7){
+                          //fill lead jet constit 8
+                          //std::cout << "filled sub sub lead constit 8" << std::endl;
+                          subsublead_jet_c8_eta_ = etaVec[i];
+                          subsublead_jet_c8_phi_ = phiVec[i];
+                          subsublead_jet_c8_charge_ = chargeVec[i];
+                          subsublead_jet_c8_pt_ = ptVec[i];
+                          subsublead_jet_c8_energy_ = energyVec[i];
+                          }
+                        }
+                      } 
+                    
+                  }
                 }
                 // if the jet's pt is neither higher than the lead jet or sublead jet, then forget it!
                 if( dijet_indices.first != -1 && dijet_indices.second != -1 ) {hasValidVBFDiJet  = 1;}
                 if( hasValidVBFDiJet          && jet_3_index != -1          ) {hasValidVBFTriJet = 1;}
             }
+         
+            //std::cout << "end of jet" << std::endl;     
 
             //Third jet deltaR cut and merge index finding
             int indexToMergeWithJ3(-1);
@@ -489,6 +1150,159 @@ namespace flashgg {
             mvares.n_rec_jets        = n_jets_count;
             mvares.cosThetaStar      = cosThetaStar_ ;
             mvares.constit_energy    = constit_energy_ ;
+
+            mvares.n_constits        = n_constits_;
+
+            mvares.lead_jet_pt    = lead_jet_pt_ ;
+            mvares.test_lead_jet_eta    = test_lead_jet_eta_ ;
+
+            mvares.lead_jet_c1_eta = lead_jet_c1_eta_;
+            //std::cout << "lead eta c1: " << lead_jet_c1_eta_;
+            mvares.lead_jet_c2_eta = lead_jet_c2_eta_;
+            //std::cout << "lead eta c2: " << lead_jet_c2_eta_;
+            mvares.lead_jet_c3_eta = lead_jet_c3_eta_;
+            //std::cout << "lead eta c3: " << lead_jet_c3_eta_;
+            mvares.lead_jet_c4_eta = lead_jet_c4_eta_;
+            //std::cout << "lead eta c4: " << lead_jet_c4_eta_;
+            mvares.lead_jet_c5_eta = lead_jet_c5_eta_;
+            //std::cout << "lead eta c5: " << lead_jet_c5_eta_;
+            mvares.lead_jet_c6_eta = lead_jet_c6_eta_;
+            //std::cout << "lead eta c6: " << lead_jet_c6_eta_;
+            mvares.lead_jet_c7_eta = lead_jet_c7_eta_;
+            //std::cout << "lead eta c7: " << lead_jet_c7_eta_;
+            mvares.lead_jet_c8_eta = lead_jet_c8_eta_;
+            //std::cout << "lead eta c8: " << lead_jet_c8_eta_;
+            mvares.lead_jet_c1_phi = lead_jet_c1_phi_;
+            mvares.lead_jet_c2_phi = lead_jet_c2_phi_;
+            mvares.lead_jet_c3_phi = lead_jet_c3_phi_;
+            mvares.lead_jet_c4_phi = lead_jet_c4_phi_;
+            mvares.lead_jet_c5_phi = lead_jet_c5_phi_;
+            mvares.lead_jet_c6_phi = lead_jet_c6_phi_;
+            mvares.lead_jet_c7_phi = lead_jet_c7_phi_;
+            mvares.lead_jet_c8_phi = lead_jet_c8_phi_;
+            mvares.lead_jet_c1_charge =  lead_jet_c1_charge_;
+            mvares.lead_jet_c2_charge =  lead_jet_c2_charge_;
+            mvares.lead_jet_c3_charge =  lead_jet_c3_charge_;
+            mvares.lead_jet_c4_charge =  lead_jet_c4_charge_;
+            mvares.lead_jet_c5_charge =  lead_jet_c5_charge_;
+            mvares.lead_jet_c6_charge =  lead_jet_c6_charge_;
+            mvares.lead_jet_c7_charge =  lead_jet_c7_charge_;
+            mvares.lead_jet_c8_charge =  lead_jet_c8_charge_;
+            mvares.lead_jet_c1_pt = lead_jet_c1_pt_;
+            mvares.lead_jet_c2_pt = lead_jet_c2_pt_;
+            mvares.lead_jet_c3_pt = lead_jet_c3_pt_;
+            mvares.lead_jet_c4_pt = lead_jet_c4_pt_;
+            mvares.lead_jet_c5_pt = lead_jet_c5_pt_;
+            mvares.lead_jet_c6_pt = lead_jet_c6_pt_;
+            mvares.lead_jet_c7_pt = lead_jet_c7_pt_;
+            mvares.lead_jet_c8_pt = lead_jet_c8_pt_;
+            mvares.lead_jet_c1_energy = lead_jet_c1_energy_;
+            mvares.lead_jet_c2_energy = lead_jet_c2_energy_;
+            mvares.lead_jet_c3_energy = lead_jet_c3_energy_;
+            mvares.lead_jet_c4_energy = lead_jet_c4_energy_;
+            mvares.lead_jet_c5_energy = lead_jet_c5_energy_;
+            mvares.lead_jet_c6_energy = lead_jet_c6_energy_;
+            mvares.lead_jet_c7_energy = lead_jet_c7_energy_;
+            mvares.lead_jet_c8_energy = lead_jet_c8_energy_;
+
+            mvares.sublead_jet_c1_eta = sublead_jet_c1_eta_;
+            //std::cout << "sub lead eta c1: " << sublead_jet_c1_eta_;
+            mvares.sublead_jet_c2_eta = sublead_jet_c2_eta_;
+            //std::cout << "sub lead eta c2: " << sublead_jet_c2_eta_;
+            mvares.sublead_jet_c3_eta = sublead_jet_c3_eta_;
+            //std::cout << "sub lead eta c3: " << sublead_jet_c3_eta_;
+            mvares.sublead_jet_c4_eta = sublead_jet_c4_eta_;
+            //std::cout << "sub lead eta c4: " << sublead_jet_c4_eta_;
+            mvares.sublead_jet_c5_eta = sublead_jet_c5_eta_;
+            //std::cout << "sub lead eta c5: " << sublead_jet_c5_eta_;
+            mvares.sublead_jet_c6_eta = sublead_jet_c6_eta_;
+            //std::cout << "sub lead eta c6: " << sublead_jet_c6_eta_;
+            mvares.sublead_jet_c7_eta = sublead_jet_c7_eta_;
+            //std::cout << "sub lead eta c7: " << sublead_jet_c7_eta_;
+            mvares.sublead_jet_c8_eta = sublead_jet_c8_eta_;
+            //std::cout << "sub lead eta c8: " << sublead_jet_c8_eta_;
+            mvares.sublead_jet_c1_phi = sublead_jet_c1_phi_;
+            mvares.sublead_jet_c2_phi = sublead_jet_c2_phi_;
+            mvares.sublead_jet_c3_phi = sublead_jet_c3_phi_;
+            mvares.sublead_jet_c4_phi = sublead_jet_c4_phi_;
+            mvares.sublead_jet_c5_phi = sublead_jet_c5_phi_;
+            mvares.sublead_jet_c6_phi = sublead_jet_c6_phi_;
+            mvares.sublead_jet_c7_phi = sublead_jet_c7_phi_;
+            mvares.sublead_jet_c8_phi = sublead_jet_c8_phi_;
+            mvares.sublead_jet_c1_charge =  sublead_jet_c1_charge_;
+            mvares.sublead_jet_c2_charge =  sublead_jet_c2_charge_;
+            mvares.sublead_jet_c3_charge =  sublead_jet_c3_charge_;
+            mvares.sublead_jet_c4_charge =  sublead_jet_c4_charge_;
+            mvares.sublead_jet_c5_charge =  sublead_jet_c5_charge_;
+            mvares.sublead_jet_c6_charge =  sublead_jet_c6_charge_;
+            mvares.sublead_jet_c7_charge =  sublead_jet_c7_charge_;
+            mvares.sublead_jet_c8_charge =  sublead_jet_c8_charge_;
+            mvares.sublead_jet_c1_pt = sublead_jet_c1_pt_;
+            mvares.sublead_jet_c2_pt = sublead_jet_c2_pt_;
+            mvares.sublead_jet_c3_pt = sublead_jet_c3_pt_;
+            mvares.sublead_jet_c4_pt = sublead_jet_c4_pt_;
+            mvares.sublead_jet_c5_pt = sublead_jet_c5_pt_;
+            mvares.sublead_jet_c6_pt = sublead_jet_c6_pt_;
+            mvares.sublead_jet_c7_pt = sublead_jet_c7_pt_;
+            mvares.sublead_jet_c8_pt = sublead_jet_c8_pt_;
+            mvares.sublead_jet_c1_energy = sublead_jet_c1_energy_;
+            mvares.sublead_jet_c2_energy = sublead_jet_c2_energy_;
+            mvares.sublead_jet_c3_energy = sublead_jet_c3_energy_;
+            mvares.sublead_jet_c4_energy = sublead_jet_c4_energy_;
+            mvares.sublead_jet_c5_energy = sublead_jet_c5_energy_;
+            mvares.sublead_jet_c6_energy = sublead_jet_c6_energy_;
+            mvares.sublead_jet_c7_energy = sublead_jet_c7_energy_;
+            mvares.sublead_jet_c8_energy = sublead_jet_c8_energy_;
+
+            mvares.subsublead_jet_c1_eta = subsublead_jet_c1_eta_;
+            //std::cout << "sub sub lead eta c1: " << subsublead_jet_c1_eta_;
+            mvares.subsublead_jet_c2_eta = subsublead_jet_c2_eta_;
+            //std::cout << "sub sub lead eta c2: " << subsublead_jet_c2_eta_;
+            mvares.subsublead_jet_c3_eta = subsublead_jet_c3_eta_;
+            //std::cout << "sub sub lead eta c3: " << subsublead_jet_c3_eta_;
+            mvares.subsublead_jet_c4_eta = subsublead_jet_c4_eta_;
+            //std::cout << "sub sub lead eta c4: " << subsublead_jet_c4_eta_;
+            mvares.subsublead_jet_c5_eta = subsublead_jet_c5_eta_;
+            //std::cout << "sub sub lead eta c5: " << subsublead_jet_c5_eta_;
+            mvares.subsublead_jet_c6_eta = subsublead_jet_c6_eta_;
+            //std::cout << "sub sub lead eta c6: " << subsublead_jet_c6_eta_;
+            mvares.subsublead_jet_c7_eta = subsublead_jet_c7_eta_;
+            //std::cout << "sub sub lead eta c7: " << subsublead_jet_c7_eta_;
+            mvares.subsublead_jet_c8_eta = subsublead_jet_c8_eta_;
+            //std::cout << "sub sub lead eta c8: " << subsublead_jet_c8_eta_;
+            mvares.subsublead_jet_c1_phi = subsublead_jet_c1_phi_;
+            mvares.subsublead_jet_c2_phi = subsublead_jet_c2_phi_;
+            mvares.subsublead_jet_c3_phi = subsublead_jet_c3_phi_;
+            mvares.subsublead_jet_c4_phi = subsublead_jet_c4_phi_;
+            mvares.subsublead_jet_c5_phi = subsublead_jet_c5_phi_;
+            mvares.subsublead_jet_c6_phi = subsublead_jet_c6_phi_;
+            mvares.subsublead_jet_c7_phi = subsublead_jet_c7_phi_;
+            mvares.subsublead_jet_c8_phi = subsublead_jet_c8_phi_;
+            mvares.subsublead_jet_c1_charge =  subsublead_jet_c1_charge_;
+            mvares.subsublead_jet_c2_charge =  subsublead_jet_c2_charge_;
+            mvares.subsublead_jet_c3_charge =  subsublead_jet_c3_charge_;
+            mvares.subsublead_jet_c4_charge =  subsublead_jet_c4_charge_;
+            mvares.subsublead_jet_c5_charge =  subsublead_jet_c5_charge_;
+            mvares.subsublead_jet_c6_charge =  subsublead_jet_c6_charge_;
+            mvares.subsublead_jet_c7_charge =  subsublead_jet_c7_charge_;
+            mvares.subsublead_jet_c8_charge =  subsublead_jet_c8_charge_;
+            mvares.subsublead_jet_c1_pt = subsublead_jet_c1_pt_;
+            mvares.subsublead_jet_c2_pt = subsublead_jet_c2_pt_;
+            mvares.subsublead_jet_c3_pt = subsublead_jet_c3_pt_;
+            mvares.subsublead_jet_c4_pt = subsublead_jet_c4_pt_;
+            mvares.subsublead_jet_c5_pt = subsublead_jet_c5_pt_;
+            mvares.subsublead_jet_c6_pt = subsublead_jet_c6_pt_;
+            mvares.subsublead_jet_c7_pt = subsublead_jet_c7_pt_;
+            mvares.subsublead_jet_c8_pt = subsublead_jet_c8_pt_;
+            mvares.subsublead_jet_c1_energy = subsublead_jet_c1_energy_;
+            mvares.subsublead_jet_c2_energy = subsublead_jet_c2_energy_;
+            mvares.subsublead_jet_c3_energy = subsublead_jet_c3_energy_;
+            mvares.subsublead_jet_c4_energy = subsublead_jet_c4_energy_;
+            mvares.subsublead_jet_c5_energy = subsublead_jet_c5_energy_;
+            mvares.subsublead_jet_c6_energy = subsublead_jet_c6_energy_;
+            mvares.subsublead_jet_c7_energy = subsublead_jet_c7_energy_;
+            mvares.subsublead_jet_c8_energy = subsublead_jet_c8_energy_;
+
             mvares.dipho_PToM        = dipho_PToM_ ;
             mvares.sublPho_PToM      = sublPho_PToM_ ;
             mvares.leadPho_PToM      = leadPho_PToM_ ;
@@ -501,6 +1315,8 @@ namespace flashgg {
             vbf_results->push_back( mvares );
         }
         evt.put( std::move( vbf_results ) );
+        //std::cout << "" << std::endl;
+        //std::cout << "next event" << std::endl;
     }
 }
 
