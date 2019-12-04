@@ -179,7 +179,7 @@ from flashgg.MetaData.samples_utils import SamplesManager
 process.source = cms.Source ("PoolSource",
                              fileNames = cms.untracked.vstring(
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DiPhotonJetsBox_MGG-80toInf_13TeV-Sherpa/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190716_170206/0000/myMicroAODOutputFile_912.root'
-'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/VBFHToGG_M127_13TeV_amcatnlo_pythia8/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/190703_112552/0000/myMicroAODOutputFile_15.root'
+'file:/afs/cern.ch/work/d/davies/flashgg/fggNew/CMSSW_10_6_1_patch2/src/flashgg/myMicroAODOutputFileGGH10K.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190606_100408/0002/myMicroAODOutputFile_2357.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DoubleEG/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-Run2017C-31Mar2018-v1/190606_095024/0001/myMicroAODOutputFile_1330.root'
                              )
@@ -247,6 +247,24 @@ new_variables = [
     "cosThetaStar         := VBFMVA.cosThetaStar",
 ]
 
+jetStudy_variables = [
+    "dijet_leadEta            := VBFMVA().dijet_leadEta",
+    "dijet_subleadEta         := VBFMVA().dijet_subleadEta",
+    "dijet_subsubleadEta      := VBFMVA().dijet_subsubleadEta",
+    "dijet_LeadJPt            := VBFMVA().dijet_LeadJPt",
+    "dijet_SubJPt             := VBFMVA().dijet_SubJPt",
+    "dijet_SubsubJPt          := VBFMVA().dijet_subsubJPt",
+    "dijet_leadPUMVA          := VBFMVA().dijet_leadPUMVA",
+    "dijet_subleadPUMVA       := VBFMVA().dijet_subleadPUMVA",
+    "dijet_subsubleadPUMVA    := VBFMVA().dijet_subsubleadPUMVA",
+    "dijet_leadDeltaPhi       := VBFMVA().dijet_leadDeltaPhi",
+    "dijet_subleadDeltaPhi    := VBFMVA().dijet_subleadDeltaPhi",
+    "dijet_subsubleadDeltaPhi := VBFMVA().dijet_subsubleadDeltaPhi",
+    "dijet_leadDeltaEta       := VBFMVA().dijet_leadDeltaEta",
+    "dijet_subleadDeltaEta    := VBFMVA().dijet_subleadDeltaEta",
+    "dijet_subsubleadDeltaEta := VBFMVA().dijet_subsubleadDeltaEta"
+]
+
 matching_photon = [
     "dijet_jet1_match := leadingJet_match",
     "dijet_jet2_match := subLeadingJet_match",
@@ -261,7 +279,7 @@ cloneTagSequenceForEachSystematic(process,
                                   jetSystematicsInputTags=jetSystematicsInputTags,
                                   ZPlusJetMode=2)
 
-all_variables = var.dipho_variables + var.dijet_variables + new_variables
+all_variables = var.dipho_variables + var.dijet_variables + new_variables + jetStudy_variables
 
 if customize.processId != "Data":
     all_variables += matching_photon# + jet_syst_weights

@@ -37,6 +37,19 @@ namespace flashgg {
         leadPho_PToM           ( -9999. ),
         sublPho_PToM           ( -9999. ),
         
+        dijet_leadPUMVA        ( -9999. ),
+        dijet_leadDeltaPhi     ( -9999. ),
+        dijet_leadDeltaEta  ( -9999. ),
+        dijet_subleadPUMVA  ( -9999. ),
+        dijet_subleadDeltaPhi  ( -9999. ),
+        dijet_subleadDeltaEta  ( -9999. ),
+        dijet_subsubleadPUMVA  ( -9999. ),
+        dijet_subsubleadDeltaPhi  ( -9999. ),
+        dijet_subsubleadDeltaEta  ( -9999. ),
+
+        dijet_subsubleadEta ( -9999. ),
+        dijet_subsubJPt ( -9999. ),
+
         vbfMvaResult_value     ( -9999. ),
         vbfMvaResult_value_bdt ( -9999. ),
         vbfMvaResult_value_bdtg( -9999. )
@@ -86,6 +99,20 @@ namespace flashgg {
         dijet_leady      = x->dijet_leady    ;
         dijet_subleady   = x->dijet_subleady ;
         dijet_dy         = x->dijet_dy;
+
+
+        dijet_leadPUMVA   = x->dijet_leadPUMVA;     
+        dijet_leadDeltaPhi  = x->dijet_leadDeltaPhi;
+        dijet_leadDeltaEta  = x->dijet_leadDeltaEta;
+        dijet_subleadPUMVA  = x->dijet_subleadPUMVA;     
+        dijet_subleadDeltaPhi = x->dijet_subleadDeltaPhi;
+        dijet_subleadDeltaEta= x->dijet_subleadDeltaEta;
+        dijet_subsubleadPUMVA= x->dijet_subsubleadPUMVA;
+        dijet_subsubleadDeltaPhi= x->dijet_subsubleadDeltaPhi;
+        dijet_subsubleadDeltaEta = x->dijet_subsubleadDeltaEta;
+
+        dijet_subsubleadEta = x->dijet_subsubleadEta;
+        dijet_subsubJPt = x->dijet_subsubJPt;
         
         // VBF MVA results different methods
         // need to be remove at some point ?

@@ -71,6 +71,18 @@ namespace flashgg {
         float leadPho_PToM;
         float sublPho_PToM;
         
+        float dijet_leadPUMVA;
+        float dijet_leadDeltaPhi;
+        float dijet_leadDeltaEta;
+        float dijet_subleadPUMVA;
+        float dijet_subleadDeltaPhi;
+        float dijet_subleadDeltaEta;
+        float dijet_subsubleadPUMVA;
+        float dijet_subsubleadDeltaPhi;
+        float dijet_subsubleadDeltaEta;
+
+        float dijet_subsubleadEta;
+        float dijet_subsubJPt;
         // some 3-jet based variables 
         
         float VBFMVAValue() const {return vbfMvaResult_value;}
