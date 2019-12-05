@@ -315,7 +315,8 @@ new_variables = [
     "sub_lead_jet_flav        :=  tagTruth().flav_J2",
     "subsub_lead_jet_flav     :=  tagTruth().flav_J3",
     
-    "n_constits := VBFMVA().n_constits",
+    "n_constits               := VBFMVA().n_constits",
+    #"test_vector              := VBFMVA().test_vec",
                   
     "lead_jet_constit1_eta := VBFMVA.lead_jet_c1_eta",
     "lead_jet_constit2_eta := VBFMVA.lead_jet_c2_eta",
@@ -478,12 +479,13 @@ cfgTools.addCategories(process.vbfTagDumper,
 
 process.vbfTagDumper.nameTemplate = "$PROCESS_$SQRTS_$CLASSNAME_$SUBCAT_$LABEL"
 from HLTrigger.HLTfilters.hltHighLevel_cfi import hltHighLevel
+''' #FIXME could check if this is actually being executed, with the normal command (i.e. not my uAOD)
 hlt_paths = []
 for dset in customize.metaConditions["TriggerPaths"]:
     if dset in customize.datasetName():
         hlt_paths.extend(customize.metaConditions["TriggerPaths"][dset])
 process.hltHighLevel= hltHighLevel.clone(HLTPaths = cms.vstring(hlt_paths))
-
+'''
 process.options      = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
 
 # ee bad supercluster filter on data
