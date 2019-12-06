@@ -1,4 +1,4 @@
-flashgg
+flashgg by the IceMan
 =======
 
 Before you start, **please take note** of these warnings and comments:
