@@ -178,8 +178,7 @@ from flashgg.MetaData.samples_utils import SamplesManager
 
 process.source = cms.Source ("PoolSource",
                              fileNames = cms.untracked.vstring(
-#'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DiPhotonJetsBox_MGG-80toInf_13TeV-Sherpa/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190716_170206/0000/myMicroAODOutputFile_912.root'
-'file:/afs/cern.ch/work/d/davies/flashgg/fggNew/CMSSW_10_6_1_patch2/src/flashgg/myMicroAODOutputFileGGH10K.root'
+'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DiPhotonJetsBox_MGG-80toInf_13TeV-Sherpa/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190716_170206/0000/myMicroAODOutputFile_912.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190606_100408/0002/myMicroAODOutputFile_2357.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DoubleEG/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-Run2017C-31Mar2018-v1/190606_095024/0001/myMicroAODOutputFile_1330.root'
                              )
@@ -245,7 +244,10 @@ new_variables = [
     "dipho_pt             := diPhoton.pt",
     "dijet_pt             := VBFMVA.dijet_pt",
     "cosThetaStar         := VBFMVA.cosThetaStar",
+    #"gen_lead_Parton_pdgId  := tagTruth().pdgId_P1",
+    #"flavour_leadRecoJet  := tagTruth().flav_J1"
 ]
+
 
 jetStudy_variables = [
     "dijet_leadEta            := VBFMVA().dijet_leadEta",
@@ -264,6 +266,7 @@ jetStudy_variables = [
     "dijet_subleadDeltaEta    := VBFMVA().dijet_subleadDeltaEta",
     "dijet_subsubleadDeltaEta := VBFMVA().dijet_subsubleadDeltaEta"
 ]
+
 
 matching_photon = [
     "dijet_jet1_match := leadingJet_match",
@@ -303,12 +306,13 @@ cfgTools.addCategories(process.vbfTagDumper,
 )
 process.vbfTagDumper.nameTemplate = "$PROCESS_$SQRTS_$CLASSNAME_$SUBCAT_$LABEL"
 from HLTrigger.HLTfilters.hltHighLevel_cfi import hltHighLevel
+'''
 hlt_paths = []
 for dset in customize.metaConditions["TriggerPaths"]:
     if dset in customize.datasetName():
         hlt_paths.extend(customize.metaConditions["TriggerPaths"][dset])
 process.hltHighLevel= hltHighLevel.clone(HLTPaths = cms.vstring(hlt_paths))
-
+'''
 process.options      = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
 
 # ee bad supercluster filter on data

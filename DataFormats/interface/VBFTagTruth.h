@@ -47,6 +47,10 @@ namespace flashgg {
         float pt_P1() const { return ( hasLeadingParton() ? leadingParton()->pt() : -9999. ); }
         float eta_P1() const { return ( hasLeadingParton() ? leadingParton()->eta() : -9999. ); }
         float phi_P1() const { return ( hasLeadingParton() ? leadingParton()->phi() : -9999. ); }
+        //float pdgId_P1() const { return ( hasLeadingParton() ? leadingParton()->pdgId() : -9999. ); }
+        //float pdgId_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->pdgId() : -9999. ); }
+        //float pdgId_P3() const { return ( hasSubSubLeadingParton() ? subSubLeadingParton()->pdgId() : -9999. ); }
+
         float pt_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->pt() : -9999. ); }
         float eta_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->eta() : -9999. ); }
         float phi_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->phi() : -9999. ); }
@@ -62,6 +66,11 @@ namespace flashgg {
         float pt_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->pt() : -9999. ); }
         float eta_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->eta() : -9999. ); }
         float phi_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->phi() : -9999. ); }
+
+        //float flav_J1() const { return ( hasLeadingJet() ? subLeadingJet()->partonFlavour() : -9999. ); }
+        //float flav_J2() const { return ( hasSubLeadingJet() ? subSubLeadingJet()->partonFlavour() : -9999. ); }
+        //float flav_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->partonFlavour() : -9999. ); }
+
 
         //DeltaRs between Jet and truth
         float dR_genJetMatchingToJ1() const { return ( hasClosestGenJetToLeadingJet() ? deltaR(closestGenJetToLeadingJet()->eta(),closestGenJetToLeadingJet()->phi(),
