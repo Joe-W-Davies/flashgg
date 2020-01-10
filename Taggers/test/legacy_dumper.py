@@ -306,13 +306,13 @@ cfgTools.addCategories(process.vbfTagDumper,
 )
 process.vbfTagDumper.nameTemplate = "$PROCESS_$SQRTS_$CLASSNAME_$SUBCAT_$LABEL"
 from HLTrigger.HLTfilters.hltHighLevel_cfi import hltHighLevel
-'''
+
 hlt_paths = []
 for dset in customize.metaConditions["TriggerPaths"]:
     if dset in customize.datasetName():
         hlt_paths.extend(customize.metaConditions["TriggerPaths"][dset])
 process.hltHighLevel= hltHighLevel.clone(HLTPaths = cms.vstring(hlt_paths))
-'''
+
 process.options      = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
 
 # ee bad supercluster filter on data

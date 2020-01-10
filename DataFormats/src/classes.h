@@ -25,6 +25,7 @@
 #include "flashgg/DataFormats/interface/TTHDiLeptonTag.h"
 #include "flashgg/DataFormats/interface/VBFDiPhoDiJetMVAResult.h"
 #include "flashgg/DataFormats/interface/VBFMVAResult.h"
+#include "flashgg/DataFormats/interface/GluGluHMVAResult.h" //JDavies
 #include "flashgg/DataFormats/interface/VBFTag.h"
 #include "flashgg/DataFormats/interface/VHHadronicTag.h"
 #include "flashgg/DataFormats/interface/VHLooseTag.h"
@@ -174,6 +175,8 @@ namespace  {
         std::vector<flashgg::VBFMVAResult> vec_vbf_res;
         edm::Wrapper<std::vector<flashgg::VBFMVAResult> > wrp_vec_vbf_res;
 
+        flashgg::GluGluHMVAResult ggH_res;
+
         flashgg::ZPlusJetTag zpj_res;
         std::vector<flashgg::ZPlusJetTag> vec_zpj_res;
         edm::Wrapper<std::vector<flashgg::ZPlusJetTag> > wrp_vec_zpj_res;
@@ -319,9 +322,6 @@ namespace  {
         edm::Wrapper<edm::Ptr<flashgg::PhotonJetCandidate> >       wrp_ptr_fgj_dip;
         std::vector<edm::Ptr<flashgg::PhotonJetCandidate> >        vec_ptr_fgj_dip;
         edm::Wrapper<std::vector<edm::Ptr<flashgg::PhotonJetCandidate> > >   wrp_vec_ptr_fgj_dip;
-
-        flashgg::TagCandidate                                        tags;
-        edm::Wrapper<flashgg::TagCandidate>                      wrp_tags;
         std::vector<flashgg::TagCandidate>                       vec_tags;
         edm::Wrapper<std::vector<flashgg::TagCandidate> >    wrp_vec_tags;
 
