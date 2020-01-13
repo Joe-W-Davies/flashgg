@@ -29,7 +29,13 @@ namespace flashgg {
         
         const VBFDiPhoDiJetMVAResult VBFDiPhoDiJetMVA() const;
         const VBFMVAResult VBFMVA() const ;
-        const GluGluHMVAResult GluGluHMVA() const ;
+        
+        //getter
+        const GluGluHMVAResult GluGluHMVA() const; 
+        //const edm::Ptr<flashgg::GluGluHMVAResult> GluGluHMVA() const {return ggHMvaResult_;}
+        //setter: use this inside the VBF tag producer to set the result
+        //const void setGluGluHMVA( edm::Ptr<flashgg::GluGluHMVAResult> ggHMvaResult ) {ggHMvaResult_ = ggHMvaResult;}
+        const void setGluGluHMVA( GluGluHMVAResult ggHMvaResult );
 
         const reco::Candidate::LorentzVector leadingJet() const; //needs to be validated
         const reco::Candidate::LorentzVector subLeadingJet() const; //needs to be validated
@@ -91,8 +97,8 @@ namespace flashgg {
 
     private:
         VBFDiPhoDiJetMVAResult vbfDiPhoDiJet_mva_result_;
+        //edm::Ptr<flashgg::GluGluHMVAResult> ggHMvaResult_;
         GluGluHMVAResult ggHMvaResult_;
-
         float alphaUp_;
         float alphaDown_;
         float scaleUp_[3];

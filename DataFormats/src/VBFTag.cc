@@ -63,16 +63,14 @@ const VBFMVAResult VBFTag::VBFMVA() const
     return vbfDiPhoDiJet_mva_result_.vbfMvaResult;
 }
 
-const GluGluHMVAResult VBFTag::GluGluHMVA() const
-{
-    //FIXME: should return ggHMvaResult object 
-    return GluGluHMVAResult();
+//setter
+const GluGluHMVAResult VBFTag::GluGluHMVA() const{
+    return ggHMvaResult_;
 }
 
-const float VBFTag::diphotonpt() const
+const void VBFTag::setGluGluHMVA( GluGluHMVAResult ggHMvaResult )
 {
-    //FIXME: should return ggHMvaResult object 
-    return GluGluHMVAResult().diphopt;
+    ggHMvaResult_ = ggHMvaResult;
 }
 
 const reco::Candidate::LorentzVector VBFTag::leadingJet() const

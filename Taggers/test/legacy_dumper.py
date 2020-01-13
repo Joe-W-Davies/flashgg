@@ -14,7 +14,7 @@ process.load("FWCore.MessageService.MessageLogger_cfi")
 process.load("Configuration.StandardSequences.GeometryDB_cff")
 process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_condDBv2_cff")
-process.maxEvents   = cms.untracked.PSet( input  = cms.untracked.int32( 100 ) )
+process.maxEvents   = cms.untracked.PSet( input  = cms.untracked.int32( 10 ) )
 process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32( 1000 )
 
 systlabels    = [""]
@@ -180,6 +180,7 @@ process.source = cms.Source ("PoolSource",
                              fileNames = cms.untracked.vstring(
 'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DiPhotonJetsBox_MGG-80toInf_13TeV-Sherpa/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190716_170206/0000/myMicroAODOutputFile_912.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190606_100408/0002/myMicroAODOutputFile_2357.root'
+#'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/myMicroAODOutputFileGGH10K.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DoubleEG/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-Run2017C-31Mar2018-v1/190606_095024/0001/myMicroAODOutputFile_1330.root'
                              )
 )
@@ -263,8 +264,8 @@ new_variables = [
     #"flavour_leadRecoJet  := tagTruth().flav_J1"
 ]
 
-glugluHMVA_variables = [
-    "TestVar := GluGluHMVA().diphopt"
+glugluHMVA_variables=[
+    "Test_Var             := GluGluH().n_rec_jets"
 ]
 
 jetStudy_variables = [

@@ -11,6 +11,7 @@
 #include "flashgg/DataFormats/interface/DiPhotonCandidate.h"
 #include "flashgg/DataFormats/interface/VBFDiPhoDiJetMVAResult.h"
 #include "flashgg/DataFormats/interface/VBFMVAResult.h"
+#include "flashgg/DataFormats/interface/GluGluHMVAResult.h"
 #include "flashgg/DataFormats/interface/VBFTag.h"
 #include "flashgg/DataFormats/interface/VBFTagTruth.h"
 
@@ -42,6 +43,7 @@ namespace flashgg {
         EDGetTokenT<View<DiPhotonCandidate> >      diPhotonToken_;
         EDGetTokenT<View<VBFDiPhoDiJetMVAResult> > vbfDiPhoDiJetMvaResultToken_;
         EDGetTokenT<View<VBFMVAResult> >           vbfMvaResultToken_;
+        EDGetTokenT<View<GluGluHMVAResult> >       ggHMvaResultToken_;
         EDGetTokenT<View<DiPhotonMVAResult> >      mvaResultToken_;
         EDGetTokenT<View<reco::GenParticle> >      genPartToken_;
         EDGetTokenT<View<reco::GenJet> >           genJetToken_;
@@ -67,6 +69,7 @@ namespace flashgg {
     VBFTagProducer::VBFTagProducer( const ParameterSet &iConfig ) :
         diPhotonToken_( consumes<View<flashgg::DiPhotonCandidate> >( iConfig.getParameter<InputTag> ( "DiPhotonTag" ) ) ),
         vbfDiPhoDiJetMvaResultToken_( consumes<View<flashgg::VBFDiPhoDiJetMVAResult> >( iConfig.getParameter<InputTag> ( "VBFDiPhoDiJetMVAResultTag" ) ) ),
+        ggHMvaResultToken_( consumes<View<flashgg::GluGluHMVAResult> >( iConfig.getParameter<InputTag> ( "GluGluHMVAResultTag" ) ) ), //check config param is sensible
         mvaResultToken_( consumes<View<flashgg::DiPhotonMVAResult> >( iConfig.getParameter<InputTag> ( "MVAResultTag" ) ) ),
         genPartToken_( consumes<View<reco::GenParticle> >( iConfig.getParameter<InputTag> ( "GenParticleTag" ) ) ),
         genJetToken_ ( consumes<View<reco::GenJet> >( iConfig.getParameter<InputTag> ( "GenJetTag" ) ) ),
@@ -86,7 +89,6 @@ namespace flashgg {
         ParameterSet HTXSps = iConfig.getParameterSet( "HTXSTags" );
         newHTXSToken_ = consumes<HTXS::HiggsClassification>( HTXSps.getParameter<InputTag>("ClassificationObj") );
 
-        
         produces<vector<VBFTag> >();
         produces<vector<VBFTagTruth> >();
     }
@@ -106,7 +108,6 @@ namespace flashgg {
         Handle<HTXS::HiggsClassification> htxsClassification;
         evt.getByToken(newHTXSToken_,htxsClassification);
 
-
         Handle<View<flashgg::DiPhotonCandidate> > diPhotons;
         evt.getByToken( diPhotonToken_, diPhotons );
         
@@ -115,6 +116,9 @@ namespace flashgg {
         
         Handle<View<flashgg::VBFDiPhoDiJetMVAResult> > vbfDiPhoDiJetMvaResults;
         evt.getByToken( vbfDiPhoDiJetMvaResultToken_, vbfDiPhoDiJetMvaResults );
+
+        Handle<View<flashgg::GluGluHMVAResult> > ggHMvaResults;
+        evt.getByToken( ggHMvaResultToken_, ggHMvaResults );
 
         Handle<View<reco::GenParticle> > genParticles;
         Handle<View<reco::GenJet> > genJets;
@@ -170,14 +174,18 @@ namespace flashgg {
         }
         // We are relying on corresponding sets - update this to give an error/exception
         assert( diPhotons->size() == vbfDiPhoDiJetMvaResults->size() ); 
+        assert( diPhotons->size() == ggHMvaResults->size() ); 
         assert( diPhotons->size() == mvaResults->size() ); // We are relying on corresponding sets - update this to give an error/exception
         //std::cout << "-----------------------------------------------------" << std::endl;
         for( unsigned int candIndex = 0; candIndex < diPhotons->size() ; candIndex++ ) {
+
             edm::Ptr<flashgg::VBFDiPhoDiJetMVAResult> vbfdipho_mvares = vbfDiPhoDiJetMvaResults->ptrAt( candIndex );
+            edm::Ptr<flashgg::GluGluHMVAResult> ggHMvaResult          = ggHMvaResults->ptrAt( candIndex );
             edm::Ptr<flashgg::DiPhotonMVAResult>      mvares          = mvaResults->ptrAt( candIndex );
             edm::Ptr<flashgg::DiPhotonCandidate>      dipho           = diPhotons->ptrAt( candIndex );
             
             VBFTag tag_obj( dipho, mvares, vbfdipho_mvares );
+            tag_obj.setGluGluHMVA(ggHMvaResult);
             tag_obj.setDiPhotonIndex( candIndex );
             tag_obj.setSystLabel    ( systLabel_ );
 
