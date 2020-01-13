@@ -5,6 +5,7 @@
 #include "flashgg/DataFormats/interface/DiPhotonTagBase.h"
 #include "flashgg/DataFormats/interface/VBFDiPhoDiJetMVAResult.h"
 #include "flashgg/DataFormats/interface/Jet.h"
+#include "flashgg/DataFormats/interface/GluGluHMVAResult.h"
 
 namespace flashgg {
 
@@ -15,15 +16,26 @@ namespace flashgg {
         ~VBFTag();
         
         VBFTag *clone() const override { return ( new VBFTag( *this ) ); }
-        
         VBFTag( edm::Ptr<DiPhotonCandidate>, edm::Ptr<DiPhotonMVAResult>, edm::Ptr<VBFDiPhoDiJetMVAResult> );
         VBFTag( edm::Ptr<DiPhotonCandidate>, DiPhotonMVAResult, VBFDiPhoDiJetMVAResult );
+
+        //Joe Test
+        //VBFTag( edm::Ptr<DiPhotonCandidate>, edm::Ptr<DiPhotonMVAResult>, edm::Ptr<VBFDiPhoDiJetMVAResult>, edm::Ptr<GluGluHMVAResult>);
+        //VBFTag( edm::Ptr<DiPhotonCandidate>, DiPhotonMVAResult, VBFDiPhoDiJetMVAResult, GluGluHMVAResult );
+        //end Joe tste
+        //
+
+        const float diphotonpt() const;
         
         const VBFDiPhoDiJetMVAResult VBFDiPhoDiJetMVA() const;
         const VBFMVAResult VBFMVA() const ;
+        const GluGluHMVAResult GluGluHMVA() const ;
+
         const reco::Candidate::LorentzVector leadingJet() const; //needs to be validated
         const reco::Candidate::LorentzVector subLeadingJet() const; //needs to be validated
         const reco::Candidate::LorentzVector subSubLeadingJet() const; //needs to be validated // 3rd Jet needed for VBF studies
+
+     
         
         const edm::Ptr<flashgg::Jet> leadingJet_ptr() const; //needs to be validated
         const edm::Ptr<flashgg::Jet> subLeadingJet_ptr() const; //needs to be validated
@@ -79,6 +91,7 @@ namespace flashgg {
 
     private:
         VBFDiPhoDiJetMVAResult vbfDiPhoDiJet_mva_result_;
+        GluGluHMVAResult ggHMvaResult_;
 
         float alphaUp_;
         float alphaDown_;

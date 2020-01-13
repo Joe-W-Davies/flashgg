@@ -55,7 +55,7 @@ namespace flashgg {
         
         typedef std::vector<edm::Handle<edm::View<flashgg::Jet> > > JetCollectionVector;
         
-        int n_rec_jets_;
+        float n_rec_jets_;
         float dijet_Mjj_;
         float dijet_leadEta_;
         float dijet_subleadEta_;
@@ -141,17 +141,17 @@ namespace flashgg {
         if (_MVAMethod == "Multi"){
             ggHMva_.reset( new TMVA::Reader( "!Color:Silent" ) );
 
-            ggHMva_->AddVariable( "n_rec_30"                  , &n_rec_jets_          );
+            ggHMva_->AddVariable( "n_jet_30"                  , &n_rec_jets_          );
             ggHMva_->AddVariable( "dijet_Mjj"                 , &dijet_Mjj_          );
             ggHMva_->AddVariable( "dijet_leadEta"             , &dijet_leadEta_        );
             ggHMva_->AddVariable( "dijet_subleadEta"          , &dijet_subleadEta_     );
             ggHMva_->AddVariable( "dijet_subsubleadEta"       , &dijet_subsubleadEta_  );
             ggHMva_->AddVariable( "dijet_LeadJPt"             , &dijet_leadJPt_        );
-            ggHMva_->AddVariable( "dijet_SubleadJPt"          , &dijet_subleadJPt_     );
-            ggHMva_->AddVariable( "dijet_SubsubleadJPt"       , &dijet_subsubleadJPt_  );
+            ggHMva_->AddVariable( "dijet_SubJPt"          , &dijet_subleadJPt_     );
+            ggHMva_->AddVariable( "dijet_SubsubJPt"       , &dijet_subsubleadJPt_  );
             ggHMva_->AddVariable( "dijet_leadPUMVA"           , &dijet_leadPUMVA_        );
-            ggHMva_->AddVariable( "dijet_SubleadPUMVA"        , &dijet_subleadPUMVA_     );
-            ggHMva_->AddVariable( "dijet_SubsubleadPUMVA"     , &dijet_subsubleadPUMVA_  );
+            ggHMva_->AddVariable( "dijet_subleadPUMVA"        , &dijet_subleadPUMVA_     );
+            ggHMva_->AddVariable( "dijet_subsubleadPUMVA"     , &dijet_subsubleadPUMVA_  );
             ggHMva_->AddVariable( "dijet_leadDeltaPhi"        , &dijet_leadDeltaPhi_        );
             ggHMva_->AddVariable( "dijet_subleadDeltaPhi"     , &dijet_subleadDeltaPhi_     );
             ggHMva_->AddVariable( "dijet_subsubleadDeltaPhi"  , &dijet_subsubleadDeltaPhi_  );

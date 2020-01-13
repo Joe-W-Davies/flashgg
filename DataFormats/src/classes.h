@@ -176,6 +176,8 @@ namespace  {
         edm::Wrapper<std::vector<flashgg::VBFMVAResult> > wrp_vec_vbf_res;
 
         flashgg::GluGluHMVAResult ggH_res;
+        std::vector<flashgg::GluGluHMVAResult> vec_ggH_res;
+        edm::Wrapper<std::vector<flashgg::GluGluHMVAResult> > wrp_vec_ggH_res;
 
         flashgg::ZPlusJetTag zpj_res;
         std::vector<flashgg::ZPlusJetTag> vec_zpj_res;

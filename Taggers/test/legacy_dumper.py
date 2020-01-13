@@ -14,7 +14,7 @@ process.load("FWCore.MessageService.MessageLogger_cfi")
 process.load("Configuration.StandardSequences.GeometryDB_cff")
 process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_condDBv2_cff")
-process.maxEvents   = cms.untracked.PSet( input  = cms.untracked.int32( 10 ) )
+process.maxEvents   = cms.untracked.PSet( input  = cms.untracked.int32( 100 ) )
 process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32( 1000 )
 
 systlabels    = [""]
@@ -185,7 +185,7 @@ process.source = cms.Source ("PoolSource",
 )
 
 process.TFileService = cms.Service("TFileService",
-                                   fileName = cms.string("test.root"))
+                                   fileName = cms.string("outputFile.root"))
 
 import flashgg.Taggers.dumperConfigTools as cfgTools
 from   flashgg.Taggers.tagsDumpers_cfi   import createTagDumper
@@ -211,6 +211,21 @@ process.flashggVBFMVA.rmsforwardCut = cms.double(customize.forwardJetRMSCut)
 process.flashggVBFMVA.pujidWpPtBin1 = cms.vdouble(mva_wp[customize.pujidWP][0])
 process.flashggVBFMVA.pujidWpPtBin2 = cms.vdouble(mva_wp[customize.pujidWP][1])
 process.flashggVBFMVA.pujidWpPtBin3 = cms.vdouble(mva_wp[customize.pujidWP][2])
+
+
+# OPTIONS FOR ggH MVA producer
+# Use JetID
+print "Setting options for glugluH MVA"
+process.flashggGluGluHMVA.UseJetID      = cms.bool(True) #fixme
+print "got past first import"
+process.flashggGluGluHMVA.JetIDLevel    = cms.string("Tight2017") #cms.string("Loose")
+process.flashggGluGluHMVA.DrJetPhoton   = cms.double(0.4) # this is the right number
+#OPtions for MVA
+process.flashggGluGluHMVA.rmsforwardCut = cms.double(customize.forwardJetRMSCut)
+process.flashggGluGluHMVA.pujidWpPtBin1 = cms.vdouble(mva_wp[customize.pujidWP][0])
+process.flashggGluGluHMVA.pujidWpPtBin2 = cms.vdouble(mva_wp[customize.pujidWP][1])
+process.flashggGluGluHMVA.pujidWpPtBin3 = cms.vdouble(mva_wp[customize.pujidWP][2])
+
 # Print to user
 print '------------------------------------------------------------'
 print ' PUJID Working point    ::' , customize.pujidWP
@@ -248,6 +263,9 @@ new_variables = [
     #"flavour_leadRecoJet  := tagTruth().flav_J1"
 ]
 
+glugluHMVA_variables = [
+    "TestVar := GluGluHMVA().diphopt"
+]
 
 jetStudy_variables = [
     "dijet_leadEta            := VBFMVA().dijet_leadEta",
@@ -282,7 +300,7 @@ cloneTagSequenceForEachSystematic(process,
                                   jetSystematicsInputTags=jetSystematicsInputTags,
                                   ZPlusJetMode=2)
 
-all_variables = var.dipho_variables + var.dijet_variables + new_variables + jetStudy_variables
+all_variables = var.dipho_variables + var.dijet_variables + new_variables + glugluHMVA_variables + jetStudy_variables
 
 if customize.processId != "Data":
     all_variables += matching_photon# + jet_syst_weights
@@ -308,11 +326,12 @@ process.vbfTagDumper.nameTemplate = "$PROCESS_$SQRTS_$CLASSNAME_$SUBCAT_$LABEL"
 from HLTrigger.HLTfilters.hltHighLevel_cfi import hltHighLevel
 
 hlt_paths = []
+'''
 for dset in customize.metaConditions["TriggerPaths"]:
     if dset in customize.datasetName():
         hlt_paths.extend(customize.metaConditions["TriggerPaths"][dset])
 process.hltHighLevel= hltHighLevel.clone(HLTPaths = cms.vstring(hlt_paths))
-
+'''
 process.options      = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
 
 # ee bad supercluster filter on data
@@ -386,4 +405,4 @@ if customize.useParentDataset:
     runRivetSequence(process, customize.metaConditions, customize.processId)
 
 # call the customization
-customize(process)
+

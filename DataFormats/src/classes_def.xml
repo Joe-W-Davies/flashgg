@@ -20,6 +20,9 @@
 <class name="edm::Wrapper<std::vector<flashgg::DiPhotonMVAResult> >"/>
 <class name="flashgg::ZPlusJetTag"/>
 <class name="std::vector<flashgg::ZPlusJetTag>"/>
+<class name="flashgg::GluGluHMVAResult"/>
+<class name="std::vector<flashgg::GluGluHMVAResult>"/>
+<class name="edm::Wrapper<std::vector<flashgg::GluGluHMVAResult> >"/>
 <class name="edm::Wrapper<std::vector<flashgg::ZPlusJetTag> >"/>
 <class name="flashgg::VBFMVAResult" ClassVersion="15">
  <version ClassVersion="15" checksum="2398871430"/>
@@ -56,7 +59,8 @@
 <class name="std::vector<flashgg::SigmaMpTTag>"/>
 <class name="edm::Wrapper<std::vector<flashgg::SigmaMpTTag> >"/>
 
-<class name="flashgg::VBFTag" ClassVersion="13">
+<class name="flashgg::VBFTag" ClassVersion="14">
+ <version ClassVersion="14" checksum="1602275170"/>
  <version ClassVersion="13" checksum="2763928631"/>
  <version ClassVersion="12" checksum="3071493064"/>
  <version ClassVersion="11" checksum="1094465099"/>

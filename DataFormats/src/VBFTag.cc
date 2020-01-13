@@ -8,8 +8,10 @@ VBFTag::VBFTag() {}
 
 VBFTag::~VBFTag() {}
 
-VBFTag::VBFTag( edm::Ptr<flashgg::DiPhotonCandidate> diPho, edm::Ptr<DiPhotonMVAResult> mvaRes, edm::Ptr<VBFDiPhoDiJetMVAResult> vbfDiPhoDiJet_mvaRes ) :
-    VBFTag::VBFTag( diPho, *mvaRes, *vbfDiPhoDiJet_mvaRes ) {}
+VBFTag::VBFTag( edm::Ptr<flashgg::DiPhotonCandidate> diPho, edm::Ptr<DiPhotonMVAResult> mvaRes, edm::Ptr<VBFDiPhoDiJetMVAResult> vbfDiPhoDiJet_mvaRes) :
+    VBFTag::VBFTag( diPho, *mvaRes, *vbfDiPhoDiJet_mvaRes) 
+{
+}
 
 VBFTag::VBFTag( edm::Ptr<DiPhotonCandidate> dipho, DiPhotonMVAResult mvares, VBFDiPhoDiJetMVAResult vbfDiPhoDiJet_mvaRes ) :
     DiPhotonTagBase::DiPhotonTagBase( dipho, mvares )
@@ -26,14 +28,51 @@ VBFTag::VBFTag( edm::Ptr<DiPhotonCandidate> dipho, DiPhotonMVAResult mvares, VBF
     }
 }
 
+//Joe Test
+//VBFTag::VBFTag( edm::Ptr<flashgg::DiPhotonCandidate> diPho, edm::Ptr<DiPhotonMVAResult> mvaRes, edm::Ptr<VBFDiPhoDiJetMVAResult> vbfDiPhoDiJet_mvaRes, edm::Ptr<GluGluHMVAResult> ggHMvaResult ) :
+//    VBFTag::VBFTag( diPho, *mvaRes, *vbfDiPhoDiJet_mvaRes, *ggHMvaResult) 
+//{
+//}
+//
+//
+//VBFTag::VBFTag( edm::Ptr<DiPhotonCandidate> dipho, DiPhotonMVAResult mvares, VBFDiPhoDiJetMVAResult vbfDiPhoDiJet_mvaRes, GluGluHMVAResult ggHMvaResult ) :
+//    DiPhotonTagBase::DiPhotonTagBase( dipho, mvares )
+//{
+//    vbfDiPhoDiJet_mva_result_ = vbfDiPhoDiJet_mvaRes;
+//    ggHMvaResult_ = ggHMvaResult;
+//    alphaUp_ = 0.;
+//    alphaDown_ = 0.;
+//    for (unsigned i = 0 ; i < 3 ; i++) {
+//        scaleUp_[i] = 0.;
+//        scaleDown_[i] = 0.;
+//    }
+//    for (unsigned i = 0 ; i < 60 ; i++) {
+//        pdf_[i] = 0.;
+//    }
+//}
+//end Joe Test 
+
 
 const VBFDiPhoDiJetMVAResult VBFTag::VBFDiPhoDiJetMVA() const
 {
     return vbfDiPhoDiJet_mva_result_;
 }
+
 const VBFMVAResult VBFTag::VBFMVA() const
 {
     return vbfDiPhoDiJet_mva_result_.vbfMvaResult;
+}
+
+const GluGluHMVAResult VBFTag::GluGluHMVA() const
+{
+    //FIXME: should return ggHMvaResult object 
+    return GluGluHMVAResult();
+}
+
+const float VBFTag::diphotonpt() const
+{
+    //FIXME: should return ggHMvaResult object 
+    return GluGluHMVAResult().diphopt;
 }
 
 const reco::Candidate::LorentzVector VBFTag::leadingJet() const
