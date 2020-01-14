@@ -518,7 +518,8 @@ namespace flashgg {
                 //mvares.vbfMvaResult_value = VbfMva_->GetProba( _MVAMethod.c_str() );
             }
 
-            
+            //DEBUG
+            std::cout << "Inside VBFMVA producer, lead ptoM is: " << leadPho_PToM_ << std::endl;
             
             mvares.dijet_leadEta     = dijet_leadEta_ ;
             mvares.dijet_subleadEta  = dijet_subleadEta_ ;

@@ -20,7 +20,6 @@ namespace flashgg {
         float dipho_mva;
         float dipho_PToM;
 
-
         // Output
         float vbfDiPhoDiJetMvaResult;
 

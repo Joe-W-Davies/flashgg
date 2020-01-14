@@ -185,9 +185,14 @@ namespace flashgg {
             edm::Ptr<flashgg::DiPhotonCandidate>      dipho           = diPhotons->ptrAt( candIndex );
             
             VBFTag tag_obj( dipho, mvares, vbfdipho_mvares );
+            //something weird happening here - ggHMvaResult object is dodgy
             tag_obj.setGluGluHMVA(ggHMvaResult);
             tag_obj.setDiPhotonIndex( candIndex );
             tag_obj.setSystLabel    ( systLabel_ );
+    
+            std::cout << "Inside VBFTag producer GluGluHMVAResult->dipho_leadptom: " << ggHMvaResult->dipho_lead_ptoM << endl;
+            //std::cout << "Inside VBFTag producer: GluGluHMVA().lead_dipho_ptoM: " << tag_obj.GluGluHMVA()->dipho_lead_ptoM << endl;
+            std::cout << "Inside VBFTag producer: VBFMVA().leadPho_PToM: " << tag_obj.VBFMVA().leadPho_PToM << endl;
 
             tag_obj.includeWeights( *dipho );
             if ( tag_obj.VBFMVA().dijet_Mjj > 0. ) {

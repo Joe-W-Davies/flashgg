@@ -16,8 +16,8 @@ def flashggPrepareTagSequence(process, options):
                                       * flashggDiPhotonMVA
                                       * flashggUnpackedJets
                                       * flashggVBFMVA
-                                      * flashggVBFDiPhoDiJetMVA
                                       * flashggGluGluHMVA
+                                      * flashggVBFDiPhoDiJetMVA
                                       * ( flashggUntagged
                                       #                                  *( flashggSigmaMoMpToMTag
                                           + flashggVBFTag

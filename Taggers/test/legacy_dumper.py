@@ -265,7 +265,7 @@ new_variables = [
 ]
 
 glugluHMVA_variables=[
-    "Test_Var             := GluGluH().n_rec_jets"
+    "test_Var             := leadingJet_match()"
 ]
 
 jetStudy_variables = [

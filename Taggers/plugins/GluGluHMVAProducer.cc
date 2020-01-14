@@ -107,7 +107,7 @@ namespace flashgg {
     {
         ggHMVAweightfile_ = iConfig.getParameter<edm::FileInPath>( "ggHMVAweightfile" );
         
-        n_rec_jets_          = -999.;
+        n_rec_jets_          = -1.;
         dijet_Mjj_          = -999.;
         dijet_leadEta_        = -999.;
         dijet_subleadEta_    = -999.;
@@ -197,7 +197,7 @@ namespace flashgg {
             
             flashgg::GluGluHMVAResult mvares;
             
-            n_rec_jets_          = -999.;
+            n_rec_jets_          = -1.;
             dijet_Mjj_          = -999.;
             dijet_leadEta_        = -999.;
             dijet_subleadEta_    = -999.;
@@ -421,6 +421,7 @@ namespace flashgg {
                 dipho_sublead_ptoM_     = diPhotonP4s[1].pt()/(diPhotonP4s[0] + diPhotonP4s[1]).M();
                 diphopt_                = (diPhotonP4s[0] + diPhotonP4s[1]).Pt();
                 
+                std::cout << "Inside GluGluH producer, lead ptoM is:" << dipho_lead_ptoM_ << endl;
                 
                 //mvares.leadJet    = *Jets[jetCollectionIndex]->ptrAt( dijet_indices.first );
                 //mvares.subleadJet = *Jets[jetCollectionIndex]->ptrAt( dijet_indices.second );
@@ -469,8 +470,9 @@ namespace flashgg {
             }
             
             //Evaluate ggH BDT add store probs
-            if (_MVAMethod != "Multi") {
+            if (_MVAMethod == "Multi") {
                mvares.ggHMVAResult_prob_0J_PTH_0_10 = ggHMva_->EvaluateMulticlass( 0, _MVAMethod.c_str() ); 
+                std::cout << "Inside GluGluH producer, class1 prob is:" << mvares.ggHMVAResult_prob_0J_PTH_0_10 << endl;
                mvares.ggHMVAResult_prob_0J_PTH_GT10 = ggHMva_->EvaluateMulticlass( 1, _MVAMethod.c_str() ); 
                mvares.ggHMVAResult_prob_1J_PTH_0_60 = ggHMva_->EvaluateMulticlass( 2, _MVAMethod.c_str() ); 
                mvares.ggHMVAResult_prob_1J_PTH_60_120 = ggHMva_->EvaluateMulticlass( 3, _MVAMethod.c_str() ); 

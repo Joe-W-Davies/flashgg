@@ -30,15 +30,3 @@ flashggGluGluHMVA = cms.EDProducer('FlashggGluGluHMVAProducer',
 #                               vbfMVAweightfile = cms.FileInPath("flashgg/Taggers/data/sklearn_training_moriond17_v8.xml"),
                                ggHMVAweightfile = cms.FileInPath("flashgg/Taggers/data/nClassesGGHModel.xml")
 )
-#FIXME: Does everything below need to be included?
-# Legacy DiPhoDiJet MVA
-flashggVBFDiPhoDiJetMVA = cms.EDProducer('FlashggVBFDiPhoDiJetMVAProducer',
-                                         DiPhotonTag=cms.InputTag('flashggPreselectedDiPhotons'),
-                                         VBFMVAResultTag=cms.InputTag('flashggVBFMVA'),
-                                         MVAResultTag=cms.InputTag('flashggDiPhotonMVA'),
-                                         UseLegacyMVA = cms.bool(False),
-                                         #vbfDiPhoDiJetMVAweightfile = cms.FileInPath("flashgg/Taggers/data/TMVA_vbf_dijet_dipho_evenbkg_scaledwt50_maxdPhi_Gradient.weights.xml"),
-                                         #vbfDiPhoDiJetMVAweightfile = cms.FileInPath("flashgg/Taggers/data/TMVAClassification_combinedMVA_Jan2016_rmscut_BDTG.weights.xml"),
-                                         #vbfDiPhoDiJetMVAweightfile = cms.FileInPath("flashgg/Taggers/data/TMVAClassification_combinedMVA_76x_25_02_15_0.03_BDTG.weights.xml"),
-                                         vbfDiPhoDiJetMVAweightfile = cms.FileInPath("flashgg/Taggers/data/sklearn_combined_moriond17_v4.xml"),
-                                         )
