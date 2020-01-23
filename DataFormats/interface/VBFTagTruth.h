@@ -45,26 +45,27 @@ namespace flashgg {
         float eta_genPartMatchingToPho2() const { return ( hasClosestParticleToSubLeadingPhoton() ? closestParticleToSubLeadingPhoton()->eta() : -9999. );}
         float phi_genPartMatchingToPho2() const { return ( hasClosestParticleToSubLeadingPhoton() ? closestParticleToSubLeadingPhoton()->phi() : -9999. );}
         //FIXME: Joe - added below to check pID for partons
-        float pt_P1() const { return ( hasLeadingParton() && hasLeadingJet() ? leadingParton()->pt() : -9999. ); }
-        float eta_P1() const { return ( hasLeadingParton() && hasLeadingJet() ? leadingParton()->eta() : -9999. ); }
-        float phi_P1() const { return ( hasLeadingParton() && hasLeadingJet() ? leadingParton()->phi() : -9999. ); }
-        float energy_P1() const { return ( hasLeadingParton() && hasLeadingJet() ? leadingParton()->energy() : -9999. ); }
-        float charge_P1() const { return ( hasLeadingParton() && hasLeadingJet() ? leadingParton()->charge() : -9999. ); }
-        float pdgId_P1() const { return ( hasLeadingParton() && hasLeadingJet()? leadingParton()->pdgId() : -9999. ); }
-        //float flavour_P1() const { return ( hasLeadingParton() ? leadingParton()->getJetMCFlavour() : -9999. ); }
-        float pt_P2() const { return ( hasSubLeadingParton() && hasSubLeadingJet()? subLeadingParton()->pt() : -9999. ); }
-        float eta_P2() const { return ( hasSubLeadingParton() && hasSubLeadingJet()? subLeadingParton()->eta() : -9999. ); }
-        float phi_P2() const { return ( hasSubLeadingParton() && hasSubLeadingJet()? subLeadingParton()->phi() : -9999. ); }
-        float energy_P2() const { return ( hasSubLeadingParton() && hasSubLeadingJet()? subLeadingParton()->energy() : -9999. ); }
-        float charge_P2() const { return ( hasSubLeadingParton() && hasSubLeadingJet()? subLeadingParton()->charge() : -9999. ); }
-        float pdgId_P2() const { return ( hasSubLeadingParton() && hasSubLeadingJet()? subLeadingParton()->pdgId() : -9999. ); }
+        float pt_P1() const { return ( hasLeadingParton()  ? leadingParton()->pt() : -9999. ); }
+        float eta_P1() const { return ( hasLeadingParton() ? leadingParton()->eta() : -9999. ); }
+        float phi_P1() const { return ( hasLeadingParton()  ? leadingParton()->phi() : -9999. ); }
+        float energy_P1() const { return ( hasLeadingParton()  ? leadingParton()->energy() : -9999. ); }
+        float charge_P1() const { return ( hasLeadingParton()  ? leadingParton()->charge() : -9999. ); }
+        float pdgId_P1() const { return ( hasLeadingParton() ? leadingParton()->pdgId() : -9999. ); }
+        //float flavour_P1() const { return ( hasLeadingParton() ? leadingParton()->hadronFlavour() : -9999. ); }
+
+        float pt_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->pt() : -9999. ); }
+        float eta_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->eta() : -9999. ); }
+        float phi_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->phi() : -9999. ); }
+        float energy_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->energy() : -9999. ); }
+        float charge_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->charge() : -9999. ); }
+        float pdgId_P2() const { return ( hasSubLeadingParton() ? subLeadingParton()->pdgId() : -9999. ); }
         //
-        float pt_P3() const { return ( hasSubSubLeadingParton() && hasSubSubLeadingJet()? subSubLeadingParton()->pt() : -9999. ); }
-        float eta_P3() const { return ( hasSubSubLeadingParton() && hasSubSubLeadingJet()? subSubLeadingParton()->eta() : -9999. ); }
-        float phi_P3() const { return ( hasSubSubLeadingParton() && hasSubSubLeadingJet()? subSubLeadingParton()->phi() : -9999. ); }
-        float energy_P3() const { return ( hasSubSubLeadingParton() && hasSubSubLeadingJet()? subSubLeadingParton()->energy() : -9999. ); }
-        float charge_P3() const { return ( hasSubSubLeadingParton() && hasSubSubLeadingJet()? subSubLeadingParton()->charge() : -9999. ); }
-        float pdgId_P3() const { return ( hasSubSubLeadingParton() && hasSubSubLeadingJet()? subSubLeadingParton()->pdgId() : -9999. ); }
+        float pt_P3() const { return ( hasSubSubLeadingParton() ? subSubLeadingParton()->pt() : -9999. ); }
+        float eta_P3() const { return ( hasSubSubLeadingParton() ? subSubLeadingParton()->eta() : -9999. ); }
+        float phi_P3() const { return ( hasSubSubLeadingParton() ? subSubLeadingParton()->phi() : -9999. ); }
+        float energy_P3() const { return ( hasSubSubLeadingParton() ? subSubLeadingParton()->energy() : -9999. ); }
+        float charge_P3() const { return ( hasSubSubLeadingParton() ? subSubLeadingParton()->charge() : -9999. ); }
+        float pdgId_P3() const { return ( hasSubSubLeadingParton() ? subSubLeadingParton()->pdgId() : -9999. ); }
         //
         //not printing correctly for some reason
         float pt_GenJ1() const { return ( hasLeadingGenJet() ? leadingGenJet()->pt() : -9999. ); }
@@ -72,13 +73,13 @@ namespace flashgg {
         float phi_GenJ1() const { return ( hasLeadingGenJet() ? leadingGenJet()->phi() : -9999. ); }
         float energy_GenJ1() const { return ( hasLeadingGenJet() ? leadingGenJet()->energy() : -9999. ); }
         float pdgId_GenJ1() const { return ( hasLeadingGenJet() ? leadingGenJet()->pdgId() : -9999. ); }
+
         //FIXME: do the same thing for the sub sub leading and subleading jets
         float pt_GenJ2() const { return ( hasSubLeadingGenJet() ? subLeadingGenJet()->pt() : -9999. ); }
         float eta_GenJ2() const { return ( hasSubLeadingGenJet() ? subLeadingGenJet()->eta() : -9999. ); }
         float phi_GenJ2() const { return ( hasSubLeadingGenJet() ? subLeadingGenJet()->phi() : -9999. ); }
         float energy_GenJ2() const { return ( hasSubLeadingGenJet() ? subLeadingGenJet()->energy() : -9999. ); }
         float pdgId_GenJ2() const { return ( hasSubLeadingGenJet() ? subLeadingGenJet()->pdgId() : -9999. ); }
-        //float flavour_GenJ2() const { return ( hasSubLeadingGenJet() ? subLeadingGenJet()->partonFlavour() : -9999. ); }
         //problemo here
         float pt_GenJ3() const { return ( hasSubSubLeadingGenJet() ? subSubLeadingGenJet()->pt() : -9999. ); }
         float eta_GenJ3() const { return ( hasSubSubLeadingGenJet() ? subSubLeadingGenJet()->eta() : -9999. ); }
@@ -87,26 +88,34 @@ namespace flashgg {
         float pdgId_GenJ3() const { return ( hasSubSubLeadingGenJet() ? subSubLeadingGenJet()->pdgId() : -9999. ); }
         //float flavour_GenJ3() const { return ( hasSubSubLeadingGenJet() ? subSubLeadingGenJet()->partonFlavour() : -9999. ); }
         //FIXME: do the same thing for the sub sub leading and subleading jets
-        float pt_J1() const { return ( hasLeadingJet() && hasLeadingParton() ? leadingJet()->pt() : -9999. ); }
-        float eta_J1() const { return ( hasLeadingJet() && hasLeadingParton() ? leadingJet()->eta() : -9999. ); }
-        float phi_J1() const { return ( hasLeadingJet() && hasLeadingParton() ? leadingJet()->phi() : -9999. ); }
-        float charge_J1() const { return ( hasLeadingJet() && hasLeadingParton() ? leadingJet()->charge() : -9999. ); }
-        float energy_J1() const { return ( hasLeadingJet() && hasLeadingParton() ? leadingJet()->energy() : -9999. ); }
-        float flav_J1() const { return ( hasLeadingJet() && hasLeadingParton() ? leadingJet()->partonFlavour() : -9999. ); }
+        float pt_J1() const { return ( hasLeadingJet() ? leadingJet()->pt() : -9999. ); }
+        float eta_J1() const { return ( hasLeadingJet()  ? leadingJet()->eta() : -9999. ); }
+        float phi_J1() const { return ( hasLeadingJet() ? leadingJet()->phi() : -9999. ); }
+        float charge_J1() const { return ( hasLeadingJet() ? leadingJet()->charge() : -9999. ); }
+        float energy_J1() const { return ( hasLeadingJet() ? leadingJet()->energy() : -9999. ); }
+        float flav_J1() const { return ( hasLeadingJet() ? leadingJet()->partonFlavour() : -9999. ); }
+        float pdgId_J1() const { return ( hasLeadingJet() ? leadingJet()->pdgId() : -9999. ); }
 
-        float pt_J2() const { return ( hasSubLeadingJet() && hasSubLeadingParton() ? subLeadingJet()->pt() : -9999. ); }
-        float eta_J2() const { return ( hasSubLeadingJet() && hasSubLeadingParton()? subLeadingJet()->eta() : -9999. ); }
-        float phi_J2() const { return ( hasSubLeadingJet() && hasSubLeadingParton()? subLeadingJet()->phi() : -9999. ); }
-        float charge_J2() const { return ( hasSubLeadingJet() && hasSubLeadingParton()? subLeadingJet()->charge() : -9999. ); }
-        float energy_J2() const { return ( hasSubLeadingJet() && hasSubLeadingParton()? subLeadingJet()->energy() : -9999. ); }
-        float flav_J2() const { return ( hasSubLeadingJet() && hasSubLeadingParton()? subLeadingJet()->partonFlavour() : -9999. ); }
+        float pt_J2() const { return ( hasSubLeadingJet() ? subLeadingJet()->pt() : -9999. ); }
+        float eta_J2() const { return ( hasSubLeadingJet() ? subLeadingJet()->eta() : -9999. ); }
+        float phi_J2() const { return ( hasSubLeadingJet() ? subLeadingJet()->phi() : -9999. ); }
+        float charge_J2() const { return ( hasSubLeadingJet() ? subLeadingJet()->charge() : -9999. ); }
+        float energy_J2() const { return ( hasSubLeadingJet() ? subLeadingJet()->energy() : -9999. ); }
+        float flav_J2() const { return ( hasSubLeadingJet() ? subLeadingJet()->partonFlavour() : -9999. ); }
+        float pdgId_J2() const { return ( hasSubLeadingJet() ? subLeadingJet()->pdgId() : -9999. ); }
 
-        float pt_J3() const { return ( hasSubSubLeadingJet() && hasSubSubLeadingParton()? subSubLeadingJet()->pt() : -9999. ); }
-        float eta_J3() const { return ( hasSubSubLeadingJet() && hasSubSubLeadingParton()? subSubLeadingJet()->eta() : -9999. ); }
-        float phi_J3() const { return ( hasSubSubLeadingJet() && hasSubSubLeadingParton()? subSubLeadingJet()->phi() : -9999. ); }
-        float charge_J3() const { return ( hasSubSubLeadingJet() && hasSubSubLeadingParton()? subSubLeadingJet()->charge() : -9999. ); }
-        float energy_J3() const { return ( hasSubSubLeadingJet() && hasSubSubLeadingParton()? subSubLeadingJet()->energy() : -9999. ); }
-        float flav_J3() const { return ( hasSubSubLeadingJet() && hasSubSubLeadingParton()? subSubLeadingJet()->partonFlavour() : -9999. ); }
+        float pt_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->pt() : -9999. ); }
+        float eta_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->eta() : -9999. ); }
+        float phi_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->phi() : -9999. ); }
+        float charge_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->charge() : -9999. ); }
+        float energy_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->energy() : -9999. ); }
+        float flav_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->partonFlavour() : -9999. ); }
+        float pdgId_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->pdgId() : -9999. ); }
+
+        //Add parton flavour of Gen Jets
+        int Flav_GenJ1() const { return ( hasLeadingGenJet() ? (*leadingGenJetPartonFlavour()) : -9999 ); }
+        int Flav_GenJ2() const { return ( hasSubLeadingGenJet() ? (*subLeadingGenJetPartonFlavour()) : -9999 ); }
+        int Flav_GenJ3() const { return ( hasSubSubLeadingGenJet() ? (*subSubLeadingGenJetPartonFlavour()) : -9999 ); }
 
         //DeltaRs between Jet and truth
         float dR_genJetMatchingToJ1() const { return ( hasClosestGenJetToLeadingJet() ? deltaR(closestGenJetToLeadingJet()->eta(),closestGenJetToLeadingJet()->phi(),
@@ -838,13 +847,16 @@ namespace flashgg {
         const edm::Ptr<reco::GenParticle> closestParticleToLeadingPhoton() const { return closestParticleToLeadingPhoton_; }
         const edm::Ptr<reco::GenParticle> closestParticleToSubLeadingPhoton() const { return closestParticleToSubLeadingPhoton_; }
 
-        //Setter methods
+        //Getter methods
         const edm::Ptr<reco::GenParticle> leadingParton() const { return leadingParton_; }
         const edm::Ptr<reco::GenParticle> subLeadingParton() const { return subLeadingParton_; }
         const edm::Ptr<reco::GenParticle> subSubLeadingParton() const { return subSubLeadingParton_; }
         const edm::Ptr<reco::GenJet> leadingGenJet() const { return leadingGenJet_; }
         const edm::Ptr<reco::GenJet> subLeadingGenJet() const { return subLeadingGenJet_; }
         const edm::Ptr<reco::GenJet> subSubLeadingGenJet() const { return subSubLeadingGenJet_; }
+        const edm::Ptr<int> leadingGenJetPartonFlavour() const { return leadingGenJetPartonFlavour_; }
+        const edm::Ptr<int> subLeadingGenJetPartonFlavour() const { return subLeadingGenJetPartonFlavour_; }
+        const edm::Ptr<int> subSubLeadingGenJetPartonFlavour() const { return subSubLeadingGenJetPartonFlavour_; }
         const edm::Ptr<flashgg::Jet> leadingJet() const {return leadingJet_; }
         const edm::Ptr<flashgg::Jet> subLeadingJet() const {return subLeadingJet_; }
         const edm::Ptr<flashgg::Jet> subSubLeadingJet() const {return subSubLeadingJet_; }
@@ -853,6 +865,7 @@ namespace flashgg {
         const std::vector<edm::Ptr<reco::GenJet>> ptOrderedGenJets() const {return ptOrderedGenJets_;}
         const std::vector<edm::Ptr<flashgg::Jet>> ptOrderedFggJets() const {return ptOrderedFggJets_;}
         
+        //Setters
         void setClosestGenJetToLeadingJet( const edm::Ptr<reco::GenJet> &val ) { closestGenJetToLeadingJet_ = val; }
         void setClosestGenJetToSubLeadingJet( const edm::Ptr<reco::GenJet> &val ) { closestGenJetToSubLeadingJet_ = val; }
         void setClosestGenJetToSubSubLeadingJet( const edm::Ptr<reco::GenJet> &val ) { closestGenJetToSubSubLeadingJet_ = val; }
@@ -871,6 +884,9 @@ namespace flashgg {
         void setSubLeadingJet   ( const edm::Ptr<flashgg::Jet> &val ) { subLeadingJet_    = val; }
         void setSubSubLeadingJet( const edm::Ptr<flashgg::Jet> &val ) { subSubLeadingJet_ = val; }
         void setLeadingGenJet( const edm::Ptr<reco::GenJet> &val ) { leadingGenJet_ = val; }
+        void setLeadingGenJetPartonFlavour( const edm::Ptr<int> &val ) { leadingGenJetPartonFlavour_ = val; }
+        void setSubLeadingGenJetPartonFlavour( const edm::Ptr<int> &val ) { subLeadingGenJetPartonFlavour_ = val; }
+        void setSubSubLeadingGenJetPartonFlavour( const edm::Ptr<int> &val ) { subSubLeadingGenJetPartonFlavour_ = val; }
         void setSubLeadingGenJet( const edm::Ptr<reco::GenJet> &val ) { subLeadingGenJet_ = val; }
         void setSubSubLeadingGenJet( const edm::Ptr<reco::GenJet> &val ) { subSubLeadingGenJet_ = val; }
         void setPtOrderedPartons( const std::vector<edm::Ptr<reco::GenParticle>> &val ) { ptOrderedPartons_ = val; }
@@ -931,6 +947,10 @@ namespace flashgg {
         edm::Ptr<reco::GenParticle> leadingParton_;
         edm::Ptr<reco::GenParticle> subLeadingParton_;
         edm::Ptr<reco::GenParticle> subSubLeadingParton_;
+
+        edm::Ptr<int> leadingGenJetPartonFlavour_;
+        edm::Ptr<int> subLeadingGenJetPartonFlavour_;
+        edm::Ptr<int> subSubLeadingGenJetPartonFlavour_;
 
         edm::Ptr<reco::GenJet> leadingGenJet_;
         edm::Ptr<reco::GenJet> subLeadingGenJet_;

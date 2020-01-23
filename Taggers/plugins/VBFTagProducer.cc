@@ -18,6 +18,8 @@
 
 #include "flashgg/DataFormats/interface/PDFWeightObject.h"
 #include "SimDataFormats/HTXS/interface/HiggsTemplateCrossSections.h"
+#include "SimDataFormats/JetMatching/interface/JetFlavourInfo.h"
+#include "SimDataFormats/JetMatching/interface/JetFlavourInfoMatching.h"
 
 #include <vector>
 #include <algorithm>
@@ -39,6 +41,7 @@ namespace flashgg {
         void produce( Event &, const EventSetup & ) override;
         int  chooseCategory( float );
 
+        EDGetTokenT<View<reco::JetFlavourInfoMatchingCollection> >      genJetFlavourInfosToken_;
         EDGetTokenT<View<DiPhotonCandidate> >      diPhotonToken_;
         EDGetTokenT<View<VBFDiPhoDiJetMVAResult> > vbfDiPhoDiJetMvaResultToken_;
         EDGetTokenT<View<VBFMVAResult> >           vbfMvaResultToken_;
@@ -65,6 +68,7 @@ namespace flashgg {
     };
 
     VBFTagProducer::VBFTagProducer( const ParameterSet &iConfig ) :
+        genJetFlavourInfosToken_( consumes<View<reco::JetFlavourInfoMatchingCollection> >( iConfig.getParameter<InputTag> ( "GenJetFlavourInfosTag" ) ) ),
         diPhotonToken_( consumes<View<flashgg::DiPhotonCandidate> >( iConfig.getParameter<InputTag> ( "DiPhotonTag" ) ) ),
         vbfDiPhoDiJetMvaResultToken_( consumes<View<flashgg::VBFDiPhoDiJetMVAResult> >( iConfig.getParameter<InputTag> ( "VBFDiPhoDiJetMVAResultTag" ) ) ),
         mvaResultToken_( consumes<View<flashgg::DiPhotonMVAResult> >( iConfig.getParameter<InputTag> ( "MVAResultTag" ) ) ),
@@ -89,6 +93,8 @@ namespace flashgg {
         
         produces<vector<VBFTag> >();
         produces<vector<VBFTagTruth> >();
+        produces<vector<int> >();
+        produces<vector<int> >();
     }
 
     int VBFTagProducer::chooseCategory( float mvavalue )
@@ -100,12 +106,11 @@ namespace flashgg {
         }
         return -1; // Does not pass, object will not be produced
     }
-    
+
     void VBFTagProducer::produce( Event &evt, const EventSetup & )
     {
         Handle<HTXS::HiggsClassification> htxsClassification;
         evt.getByToken(newHTXSToken_,htxsClassification);
-
 
         Handle<View<flashgg::DiPhotonCandidate> > diPhotons;
         evt.getByToken( diPhotonToken_, diPhotons );
@@ -118,6 +123,7 @@ namespace flashgg {
 
         Handle<View<reco::GenParticle> > genParticles;
         Handle<View<reco::GenJet> > genJets;
+        Handle<reco::JetFlavourInfoMatchingCollection> GenJetFlavourInfoHandle;
         
         Handle<vector<flashgg::PDFWeightObject> > WeightHandle;
         if (getQCDWeights_) {
@@ -135,10 +141,42 @@ namespace flashgg {
         unsigned int index_subsubleadq = std::numeric_limits<unsigned int>::max();
         float pt_leadq = 0., pt_subleadq = 0., pt_subsubleadq = 0.;
         Point higgsVtx;
+
+        unsigned int ncand = 0;
+        std::unique_ptr< vector<int> > partonFlavours (new vector<int>);
+        std::unique_ptr< vector<int> > hadronFlavours (new vector<int>);
         
         if( ! evt.isRealData() ) {
             evt.getByToken( genPartToken_, genParticles );
             evt.getByToken( genJetToken_, genJets );
+            evt.getByToken(genJetFlavourInfosToken_,GenJetFlavourInfoHandle);
+
+            // Add GenJet parton and hadronFlavour - borrowed from https://github.com/cms-sw/cmssw/blob/24de28d0548f0f50cfc332c6d75d0ef30a79417a/PhysicsTools/NanoAOD/plugins/GenJetFlavourTableProducer.cc#L59-L87
+            for ( unsigned int igenJet = 0 ; igenJet < genJets->size(); igenJet++ ) {
+                //if (!cut_(jet))
+                //    continue;
+                auto genJet = genJets->ptrAt( igenJet );
+                ++ncand;
+                bool matched = false;
+                for (const reco::JetFlavourInfoMatching& jetFlavourInfoMatching : *GenJetFlavourInfoHandle) {
+
+                    // DeltaR match between GenJet and GenJetFlavourInfo collections set to 0.1
+                    std::cout << "did something" << std::endl;
+                    if (deltaR(genJet->p4(), jetFlavourInfoMatching.first->p4()) < 0.1) {
+                        partonFlavours->push_back(jetFlavourInfoMatching.second.getPartonFlavour());
+                        std::cout << "Gen Jet Flav: " <<  jetFlavourInfoMatching.second.getPartonFlavour() << std::endl;
+                        hadronFlavours->push_back(jetFlavourInfoMatching.second.getHadronFlavour());
+                        matched = true;
+                        break;
+                    }
+                }
+                if (!matched) {
+                    partonFlavours->push_back(0);
+                    hadronFlavours->push_back(0);
+                }
+            }
+
+            // Other Gen Jet Info
             for( unsigned int genLoop = 0 ; genLoop < genParticles->size(); genLoop++ ) {
                 int pdgid = genParticles->ptrAt( genLoop )->pdgId();
                 if( pdgid == 25 || pdgid == 22 ) {
@@ -399,13 +437,16 @@ namespace flashgg {
                 //truth_obj.setPtOrderedgenJets(ptOrderedgenJets);
                 if (ptOrderedgenJets.size() == 1) {
                     truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
+                    edm::Ptr<int> flav = (*partonFlavours)[0]; 
+                    truth_obj.setLeadingGenJetPartonFlavour(flav); 
+                    //truth_obj.setLeadingGenJetPartonFlavour(&((*partonFlavours)[0])); //change index to correct to same jet as in PtOrderedJets[0]
                 }
                 if (ptOrderedgenJets.size() == 2) {
-                    truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
+                    //truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
                     truth_obj.setSubLeadingGenJet(ptOrderedgenJets[1]);
                 }
                 if (ptOrderedgenJets.size() == 3) {
-                    truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
+                    //truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
                     truth_obj.setSubLeadingGenJet(ptOrderedgenJets[1]);
                     truth_obj.setSubSubLeadingGenJet(ptOrderedgenJets[2]);
                 }
@@ -580,6 +621,8 @@ namespace flashgg {
 
         evt.put( std::move( tags ) );
         evt.put( std::move( truths ) );
+        evt.put( std::move( partonFlavours ) );
+        evt.put( std::move( hadronFlavours ) );
     }
 }
 

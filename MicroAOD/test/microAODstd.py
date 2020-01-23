@@ -11,7 +11,7 @@ process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 from Configuration.AlCa.GlobalTag import GlobalTag
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32( 10 ) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32( 1000 ) )
 process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32( 100 )
 
 import os
@@ -82,7 +82,7 @@ process.load("flashgg/MicroAOD/flashggMicroAODSequence_cff")
 #process.weightsCount.pileupInfo = "addPileupInfo"
 
 from flashgg.MicroAOD.flashggMicroAODOutputCommands_cff import microAODDefaultOutputCommand
-process.out = cms.OutputModule("PoolOutputModule", fileName = cms.untracked.string('myMicroAODOutputFileTest.root'),
+process.out = cms.OutputModule("PoolOutputModule", fileName = cms.untracked.string('uAODVBFTest_Jan2020.root'),
                                outputCommands = microAODDefaultOutputCommand
                                )
 

@@ -27,6 +27,7 @@ HTXSInputTags = cms.PSet( #stage0cat = cms.InputTag("rivetProducerHTXS","stage0c
 flashggUntagged = cms.EDProducer("FlashggUntaggedTagProducer",
 #                                 DiPhotonTag=cms.InputTag('flashggDiPhotons'),
                                  DiPhotonTag    = cms.InputTag('flashggPreselectedDiPhotons'),
+                                 GenJetFlavourInfosTag    = cms.InputTag('slimmedGenJetsFlavourInfos'),
                                  SystLabel      = cms.string(""),
                                  MVAResultTag   = cms.InputTag('flashggDiPhotonMVA'),
                                  GenParticleTag = cms.InputTag( "flashggPrunedGenParticles" ),

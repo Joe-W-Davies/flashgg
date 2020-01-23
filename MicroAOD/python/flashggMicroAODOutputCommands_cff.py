@@ -23,6 +23,7 @@ microAODDefaultOutputCommand = cms.untracked.vstring("drop *",
                                                      "keep *_weightsCount_*_*",
                                                      "keep *_generator_*_*",
                                                      "keep *_slimmedGenJets_*_*",
+                                                     "keep *_slimmedGenJetsFlavourInfos_*_*",
                                                      "keep *_flashggDiPhotons_*_*", # STILL NEEDED
                                                      "keep *_slimmedAddPileupInfo_*_*", # Was huge in old MiniAod - hopefully better now
                                                      "keep *GsfElectronCore*_reducedEgamma_*_*", # needed by at least one Tag
