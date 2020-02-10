@@ -14,7 +14,7 @@ process.load("FWCore.MessageService.MessageLogger_cfi")
 process.load("Configuration.StandardSequences.GeometryDB_cff")
 process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_condDBv2_cff")
-process.maxEvents   = cms.untracked.PSet( input  = cms.untracked.int32( 10 ) )
+process.maxEvents   = cms.untracked.PSet( input  = cms.untracked.int32( -1 ) )
 process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32( 1000 )
 
 systlabels    = [""]
@@ -178,17 +178,37 @@ from flashgg.MetaData.samples_utils import SamplesManager
 
 process.source = cms.Source ("PoolSource",
                              fileNames = cms.untracked.vstring(
-#'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DiPhotonJetsBox_MGG-80toInf_13TeV-Sherpa/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190716_170206/0000/myMicroAODOutputFile_912.root'
-#'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/myMicroAODOutputFileGGH10K.root'
-#'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/myMicroAODOutputFileVBF10K.root'
-'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/uAODVBFTest_Jan2020.root'
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Jan25_2020_file1.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Jan25_2020_file2.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Jan26_2020_file3.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Feb1_2020_file4.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Jan31_2020_file5.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Jan31_2020_file6.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Feb1_2020_file7.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Feb1_2020_file8.root'
+
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_2020_5Feb_file1.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_5Feb2020_file2.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/GGH_20_4_K_uOAD_Jan26_2020_file3.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/GGH_15K_uOAD_Jan30_2020_file4.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Jan31_2020_file5.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Jan31_2020_file6.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb1_2020_file7.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_5Feb2020_file8.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file9.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file10.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file11.root',
+'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file12.root'
+
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190606_100408/0002/myMicroAODOutputFile_2357.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DoubleEG/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-Run2017C-31Mar2018-v1/190606_095024/0001/myMicroAODOutputFile_1330.root'
-                             )
+#Tests
+#'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/ggH_uAOD_tese_file1.root'
+  )
 )
 
 process.TFileService = cms.Service("TFileService",
-                                   fileName = cms.string("test.root"))
+                                   fileName = cms.string("ggH_withGenInfo_Feb2020_all.root"))
 
 import flashgg.Taggers.dumperConfigTools as cfgTools
 from   flashgg.Taggers.tagsDumpers_cfi   import createTagDumper
@@ -248,7 +268,9 @@ new_variables = [
     "dijet_pt             := VBFMVA.dijet_pt",
     "cosThetaStar         := VBFMVA.cosThetaStar",
 
-    #"FLAVOUR_GENJET1           := tagTruth().Flav_GenJ1",
+    "Flavour_LeadGenJet           := tagTruth().Flav_GenJ1",
+    "Flavour_subLeadGenJet           := tagTruth().Flav_GenJ2",
+    "Flavour_subSubLeadGenJet           := tagTruth().Flav_GenJ3",
 
     "gen_lead_jet_pt     := tagTruth().pt_GenJ1",
     "gen_lead_jet_eta    := tagTruth().eta_GenJ1",
@@ -1332,8 +1354,19 @@ if (customize.processId.count("qcd") or customize.processId.count("gjet")) and c
     else:
         raise Exception,"Mis-configuration of python for prompt-fake filter"
 
+#print the particle decays
+#process.load("SimGeneral.HepPDTESSource.pythiapdt_cfi")
+
+#process.printTree = cms.EDAnalyzer("ParticleListDrawer",
+#  maxEventsToPrint = cms.untracked.int32(1),
+#  printVertex = cms.untracked.bool(False),
+#  printOnlyHardInteraction = cms.untracked.bool(False), # Print only status=3 particles. This will not work for Pythia8, which does not have any such particles.
+#  src = cms.InputTag("slimmedGenJets")
+#)
+
 process.p = cms.Path(process.dataRequirements
                      * process.genFilter
+                     #* process.printTree
                      #* process.flashggUpdatedIdMVADiPhotons #replaced by version below now...
                      * process.flashggDifferentialPhoIdInputsCorrection
                      * process.flashggDiPhotonSystematics

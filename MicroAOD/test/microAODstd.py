@@ -11,16 +11,54 @@ process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 from Configuration.AlCa.GlobalTag import GlobalTag
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32( 1000 ) )
-process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32( 100 )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32( 20000 ) )
+process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32( 1000 )
 
 import os
 ### 2016
 process.GlobalTag = GlobalTag(process.GlobalTag, '', '')
 process.source = cms.Source("PoolSource",
-                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M125_13TeV_amcatnloFXFX_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3_ext2-v2/270000/0A87CC73-BC63-E911-B47C-AC1F6B8AC09E.root"))
-#    process.GlobalTag = GlobalTag(process.GlobalTag,'80X_dataRun2_2016LegacyRepro_v4','')
-#    process.source = cms.Source("PoolSource",fileNames=cms.untracked.vstring("/store/data/Run2016B/SingleElectron/MINIAOD/07Aug17_ver1-v1/110000/0248293E-578B-E711-A639-44A842CFC9D9.root"))
+                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/B6126C44-89DF-E911-8408-801844E56C20.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/D816D0C7-AADD-E911-B124-782BCB1F0EB8.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/0A840A90-94DE-E911-B421-20040FE9C7DC.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/94A4656E-31E5-E911-BA8A-20040FF47804.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/A66E1D90-30E5-E911-813E-549F3525A200.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/0E006F31-30E5-E911-A944-20040FF492B8.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/FE50A4C5-2FE5-E911-9220-20040FE8EA44.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/7A902B6A-2FE5-E911-B3AE-1866DAEECFDC.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/8678C8CB-64E5-E911-A62E-20040FF469D4.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/54C98CEB-2FE5-E911-AFA5-1866DAEEB358.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/8A41AF98-2FE5-E911-A75B-20040FE9CF48.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/30000/48B62DB8-7CE5-E911-8D39-001EC94BA144.root"))
+
+
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/VBFHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/240000/40699271-C2E0-E911-9E58-38EAA78E2C94.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/VBFHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/240000/D25D28F5-C2E0-E911-816E-38EAA78D8ACC.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/VBFHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/240000/A005D852-C2E0-E911-B2CA-38EAA78D8F94.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/VBFHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/240000/F261D452-C2E0-E911-A13B-38EAA78D8F94.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/VBFHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/240000/FE267206-F0E0-E911-98D0-8CDCD4A99D14.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/VBFHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/240000/E6F15CEB-EFE0-E911-8428-38EAA78E2C94.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/VBFHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/240000/EE251C49-F1E0-E911-9F27-0CC47AF97150.root"))
+#process.source = cms.Source("PoolSource",
+#                             fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv3/VBFHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/240000/FE7C2713-22E2-E911-AB13-8CDCD4A9A484.root"))
 
 ### 2017
 #process.GlobalTag = GlobalTag(process.GlobalTag,'','')
@@ -82,7 +120,7 @@ process.load("flashgg/MicroAOD/flashggMicroAODSequence_cff")
 #process.weightsCount.pileupInfo = "addPileupInfo"
 
 from flashgg.MicroAOD.flashggMicroAODOutputCommands_cff import microAODDefaultOutputCommand
-process.out = cms.OutputModule("PoolOutputModule", fileName = cms.untracked.string('uAODVBFTest_Jan2020.root'),
+process.out = cms.OutputModule("PoolOutputModule", fileName = cms.untracked.string('ggH_20K_uAOD_2020_5Feb_file1.root'),
                                outputCommands = microAODDefaultOutputCommand
                                )
 

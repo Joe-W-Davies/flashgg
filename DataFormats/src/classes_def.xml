@@ -147,7 +147,9 @@
 <class name="std::vector<edm::Ptr<flashgg::Jet> >"/>
 <class name="edm::OwnVector<flashgg::DiPhotonTagBase, edm::ClonePolicy<flashgg::DiPhotonTagBase> >" />
 <class name="edm::Wrapper<edm::OwnVector<flashgg::DiPhotonTagBase, edm::ClonePolicy<flashgg::DiPhotonTagBase> > >" />
-<class name="flashgg::VBFTagTruth" ClassVersion="14">
+<class name="flashgg::VBFTagTruth" ClassVersion="16">
+ <version ClassVersion="16" checksum="2716443463"/>
+ <version ClassVersion="15" checksum="4073410439"/>
  <version ClassVersion="14" checksum="4127616167"/>
  <version ClassVersion="13" checksum="116849161"/>
  <version ClassVersion="12" checksum="2475891424"/>

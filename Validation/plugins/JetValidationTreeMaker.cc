@@ -412,7 +412,6 @@ JetValidationTreeMaker::analyze( const edm::Event &iEvent, const edm::EventSetup
     //const PtrVector<reco::GenParticle>& gens = genParticles->ptrVector();
 
 
-
     Handle<View<reco::GenJet> > genJets;
     iEvent.getByToken( genJetToken_, genJets );
     //const PtrVector<reco::GenJet>& genJets = genJet->ptrVector();

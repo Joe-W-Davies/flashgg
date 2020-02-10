@@ -113,9 +113,9 @@ namespace flashgg {
         float pdgId_J3() const { return ( hasSubSubLeadingJet() ? subSubLeadingJet()->pdgId() : -9999. ); }
 
         //Add parton flavour of Gen Jets
-        int Flav_GenJ1() const { return ( hasLeadingGenJet() ? (*leadingGenJetPartonFlavour()) : -9999 ); }
-        int Flav_GenJ2() const { return ( hasSubLeadingGenJet() ? (*subLeadingGenJetPartonFlavour()) : -9999 ); }
-        int Flav_GenJ3() const { return ( hasSubSubLeadingGenJet() ? (*subSubLeadingGenJetPartonFlavour()) : -9999 ); }
+        int Flav_GenJ1() const { return ( hasLeadingGenJet() ? (leadingGenJetPartonFlavour()) : -9999 ); }
+        int Flav_GenJ2() const { return ( hasSubLeadingGenJet() ? (subLeadingGenJetPartonFlavour()) : -9999 ); }
+        int Flav_GenJ3() const { return ( hasSubSubLeadingGenJet() ? (subSubLeadingGenJetPartonFlavour()) : -9999 ); }
 
         //DeltaRs between Jet and truth
         float dR_genJetMatchingToJ1() const { return ( hasClosestGenJetToLeadingJet() ? deltaR(closestGenJetToLeadingJet()->eta(),closestGenJetToLeadingJet()->phi(),
@@ -854,9 +854,9 @@ namespace flashgg {
         const edm::Ptr<reco::GenJet> leadingGenJet() const { return leadingGenJet_; }
         const edm::Ptr<reco::GenJet> subLeadingGenJet() const { return subLeadingGenJet_; }
         const edm::Ptr<reco::GenJet> subSubLeadingGenJet() const { return subSubLeadingGenJet_; }
-        const edm::Ptr<int> leadingGenJetPartonFlavour() const { return leadingGenJetPartonFlavour_; }
-        const edm::Ptr<int> subLeadingGenJetPartonFlavour() const { return subLeadingGenJetPartonFlavour_; }
-        const edm::Ptr<int> subSubLeadingGenJetPartonFlavour() const { return subSubLeadingGenJetPartonFlavour_; }
+        const int leadingGenJetPartonFlavour() const { return leadingGenJetPartonFlavour_; }
+        const int subLeadingGenJetPartonFlavour() const { return subLeadingGenJetPartonFlavour_; }
+        const int subSubLeadingGenJetPartonFlavour() const { return subSubLeadingGenJetPartonFlavour_; }
         const edm::Ptr<flashgg::Jet> leadingJet() const {return leadingJet_; }
         const edm::Ptr<flashgg::Jet> subLeadingJet() const {return subLeadingJet_; }
         const edm::Ptr<flashgg::Jet> subSubLeadingJet() const {return subSubLeadingJet_; }
@@ -884,9 +884,9 @@ namespace flashgg {
         void setSubLeadingJet   ( const edm::Ptr<flashgg::Jet> &val ) { subLeadingJet_    = val; }
         void setSubSubLeadingJet( const edm::Ptr<flashgg::Jet> &val ) { subSubLeadingJet_ = val; }
         void setLeadingGenJet( const edm::Ptr<reco::GenJet> &val ) { leadingGenJet_ = val; }
-        void setLeadingGenJetPartonFlavour( const edm::Ptr<int> &val ) { leadingGenJetPartonFlavour_ = val; }
-        void setSubLeadingGenJetPartonFlavour( const edm::Ptr<int> &val ) { subLeadingGenJetPartonFlavour_ = val; }
-        void setSubSubLeadingGenJetPartonFlavour( const edm::Ptr<int> &val ) { subSubLeadingGenJetPartonFlavour_ = val; }
+        void setLeadingGenJetPartonFlavour( const int val ) { leadingGenJetPartonFlavour_ = val; }
+        void setSubLeadingGenJetPartonFlavour( const int val ) { subLeadingGenJetPartonFlavour_ = val; }
+        void setSubSubLeadingGenJetPartonFlavour( const int val ) { subSubLeadingGenJetPartonFlavour_ = val; }
         void setSubLeadingGenJet( const edm::Ptr<reco::GenJet> &val ) { subLeadingGenJet_ = val; }
         void setSubSubLeadingGenJet( const edm::Ptr<reco::GenJet> &val ) { subSubLeadingGenJet_ = val; }
         void setPtOrderedPartons( const std::vector<edm::Ptr<reco::GenParticle>> &val ) { ptOrderedPartons_ = val; }
@@ -948,9 +948,9 @@ namespace flashgg {
         edm::Ptr<reco::GenParticle> subLeadingParton_;
         edm::Ptr<reco::GenParticle> subSubLeadingParton_;
 
-        edm::Ptr<int> leadingGenJetPartonFlavour_;
-        edm::Ptr<int> subLeadingGenJetPartonFlavour_;
-        edm::Ptr<int> subSubLeadingGenJetPartonFlavour_;
+        int leadingGenJetPartonFlavour_;
+        int subLeadingGenJetPartonFlavour_;
+        int subSubLeadingGenJetPartonFlavour_;
 
         edm::Ptr<reco::GenJet> leadingGenJet_;
         edm::Ptr<reco::GenJet> subLeadingGenJet_;

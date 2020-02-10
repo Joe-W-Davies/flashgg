@@ -41,7 +41,7 @@ namespace flashgg {
         void produce( Event &, const EventSetup & ) override;
         int  chooseCategory( float );
 
-        EDGetTokenT<View<reco::JetFlavourInfoMatchingCollection> >      genJetFlavourInfosToken_;
+        EDGetTokenT<reco::JetFlavourInfoMatchingCollection>  genJetFlavourInfosToken_;
         EDGetTokenT<View<DiPhotonCandidate> >      diPhotonToken_;
         EDGetTokenT<View<VBFDiPhoDiJetMVAResult> > vbfDiPhoDiJetMvaResultToken_;
         EDGetTokenT<View<VBFMVAResult> >           vbfMvaResultToken_;
@@ -68,7 +68,7 @@ namespace flashgg {
     };
 
     VBFTagProducer::VBFTagProducer( const ParameterSet &iConfig ) :
-        genJetFlavourInfosToken_( consumes<View<reco::JetFlavourInfoMatchingCollection> >( iConfig.getParameter<InputTag> ( "GenJetFlavourInfosTag" ) ) ),
+        genJetFlavourInfosToken_( consumes<reco::JetFlavourInfoMatchingCollection> ( iConfig.getParameter<InputTag> ( "GenJetFlavourInfosTag" ) ) ),
         diPhotonToken_( consumes<View<flashgg::DiPhotonCandidate> >( iConfig.getParameter<InputTag> ( "DiPhotonTag" ) ) ),
         vbfDiPhoDiJetMvaResultToken_( consumes<View<flashgg::VBFDiPhoDiJetMVAResult> >( iConfig.getParameter<InputTag> ( "VBFDiPhoDiJetMVAResultTag" ) ) ),
         mvaResultToken_( consumes<View<flashgg::DiPhotonMVAResult> >( iConfig.getParameter<InputTag> ( "MVAResultTag" ) ) ),
@@ -93,8 +93,8 @@ namespace flashgg {
         
         produces<vector<VBFTag> >();
         produces<vector<VBFTagTruth> >();
-        produces<vector<int> >();
-        produces<vector<int> >();
+        //produces<vector<int> >();
+        //produces<vector<int> >("");
     }
 
     int VBFTagProducer::chooseCategory( float mvavalue )
@@ -123,6 +123,7 @@ namespace flashgg {
 
         Handle<View<reco::GenParticle> > genParticles;
         Handle<View<reco::GenJet> > genJets;
+
         Handle<reco::JetFlavourInfoMatchingCollection> GenJetFlavourInfoHandle;
         
         Handle<vector<flashgg::PDFWeightObject> > WeightHandle;
@@ -149,25 +150,31 @@ namespace flashgg {
         if( ! evt.isRealData() ) {
             evt.getByToken( genPartToken_, genParticles );
             evt.getByToken( genJetToken_, genJets );
+            //std::cout << "DEBUG: trying to get flavour handle by token" << std::endl;
             evt.getByToken(genJetFlavourInfosToken_,GenJetFlavourInfoHandle);
+            //std::cout << "DEBUG: successfully got flavour handle by token" << std::endl;
 
             // Add GenJet parton and hadronFlavour - borrowed from https://github.com/cms-sw/cmssw/blob/24de28d0548f0f50cfc332c6d75d0ef30a79417a/PhysicsTools/NanoAOD/plugins/GenJetFlavourTableProducer.cc#L59-L87
+            //std::cout << "genJets size: " << genJets->size() << std::endl; 
             for ( unsigned int igenJet = 0 ; igenJet < genJets->size(); igenJet++ ) {
                 //if (!cut_(jet))
                 //    continue;
                 auto genJet = genJets->ptrAt( igenJet );
                 ++ncand;
                 bool matched = false;
-                for (const reco::JetFlavourInfoMatching& jetFlavourInfoMatching : *GenJetFlavourInfoHandle) {
-
-                    // DeltaR match between GenJet and GenJetFlavourInfo collections set to 0.1
-                    std::cout << "did something" << std::endl;
-                    if (deltaR(genJet->p4(), jetFlavourInfoMatching.first->p4()) < 0.1) {
-                        partonFlavours->push_back(jetFlavourInfoMatching.second.getPartonFlavour());
-                        std::cout << "Gen Jet Flav: " <<  jetFlavourInfoMatching.second.getPartonFlavour() << std::endl;
-                        hadronFlavours->push_back(jetFlavourInfoMatching.second.getHadronFlavour());
-                        matched = true;
-                        break;
+                //std::cout << "genJet pT for jet number: " << igenJet << " is: " << genJet->pt() << std::endl;
+                if ( genJets->size() > 0 ) {
+                    for (const reco::JetFlavourInfoMatching& jetFlavourInfoMatching : *GenJetFlavourInfoHandle) {
+                        // DeltaR match between GenJet and GenJetFlavourInfo collections set to 0.1
+                        if (deltaR(genJet->p4(), jetFlavourInfoMatching.first->p4()) < 0.1) {
+                            partonFlavours->push_back(jetFlavourInfoMatching.second.getPartonFlavour());
+                            //std::cout << "Gen Jet pT: " << genJet->pt() << std::endl;
+                            //std::cout << "Gen Jet flavour: " << jetFlavourInfoMatching.second.getPartonFlavour() << std::endl;
+                            //std::cout << "Gen Jet Flav: " <<  jetFlavourInfoMatching.second.getPartonFlavour() << std::endl;
+                            hadronFlavours->push_back(jetFlavourInfoMatching.second.getHadronFlavour());
+                            matched = true;
+                            break;
+                        }
                     }
                 }
                 if (!matched) {
@@ -435,20 +442,43 @@ namespace flashgg {
                 }
 
                 //truth_obj.setPtOrderedgenJets(ptOrderedgenJets);
+                //std::cout << "pT ordered gen jets size: " << ptOrderedgenJets.size() << std::endl;
+                //FIXME: currently cutting out jets below pT threshold applied in pT OrderedGenJets
                 if (ptOrderedgenJets.size() == 1) {
                     truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
-                    edm::Ptr<int> flav = (*partonFlavours)[0]; 
-                    truth_obj.setLeadingGenJetPartonFlavour(flav); 
+                    int flavLead = (*partonFlavours)[0]; 
+                    //std::cout << "lead Gen Jet parton flavour is:" << flavLead << std::endl;
+                    truth_obj.setLeadingGenJetPartonFlavour(flavLead); 
                     //truth_obj.setLeadingGenJetPartonFlavour(&((*partonFlavours)[0])); //change index to correct to same jet as in PtOrderedJets[0]
                 }
                 if (ptOrderedgenJets.size() == 2) {
-                    //truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
+                    truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
                     truth_obj.setSubLeadingGenJet(ptOrderedgenJets[1]);
+  
+                    int flavLead = (*partonFlavours)[0]; 
+                    truth_obj.setLeadingGenJetPartonFlavour(flavLead); 
+                    //std::cout << "Lead Gen Jet parton flavour is:" << flavLead << std::endl;
+
+                    int flavSubLead = (*partonFlavours)[1]; 
+                    //std::cout << "Sublead Gen Jet parton flavour is:" << flavSubLead << std::endl;
+                    truth_obj.setSubLeadingGenJetPartonFlavour(flavSubLead); 
                 }
-                if (ptOrderedgenJets.size() == 3) {
-                    //truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
+                if (ptOrderedgenJets.size() >= 3) {
+                    truth_obj.setLeadingGenJet(ptOrderedgenJets[0]);
                     truth_obj.setSubLeadingGenJet(ptOrderedgenJets[1]);
                     truth_obj.setSubSubLeadingGenJet(ptOrderedgenJets[2]);
+
+                    int flavLead = (*partonFlavours)[0]; 
+                    truth_obj.setLeadingGenJetPartonFlavour(flavLead); 
+                    //std::cout << "Lead Gen Jet parton flavour is:" << flavLead << std::endl;
+
+                    int flavSubLead = (*partonFlavours)[1]; 
+                    //std::cout << "Sublead Gen Jet parton flavour is:" << flavSubLead << std::endl;
+                    truth_obj.setSubLeadingGenJetPartonFlavour(flavSubLead); 
+
+                    int flavSubSubLead = (*partonFlavours)[2]; 
+                    //std::cout << "SubSublead Gen Jet parton flavour is:" << flavSubSubLead  << std::endl;
+                    truth_obj.setSubSubLeadingGenJetPartonFlavour(flavSubSubLead); 
                 }
 
                 //std::cout << "DEBUG tag_obj.subSubLeadingJet_ptr()->pt() == " << tag_obj.subSubLeadingJet_ptr()->pt() << std::endl;
@@ -621,8 +651,8 @@ namespace flashgg {
 
         evt.put( std::move( tags ) );
         evt.put( std::move( truths ) );
-        evt.put( std::move( partonFlavours ) );
-        evt.put( std::move( hadronFlavours ) );
+        //evt.put( std::move( partonFlavours ) );
+        //evt.put( std::move( hadronFlavours ) );
     }
 }
 
