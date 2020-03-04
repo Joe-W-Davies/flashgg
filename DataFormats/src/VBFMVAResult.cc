@@ -35,6 +35,28 @@ namespace flashgg {
         dijet_centrality_g     ( -9999. ),
   
         constit_energy         ( -9999. ),
+
+        pt_J1                  ( -9999. ),
+        eta_J1                 ( -9999. ),
+        phi_J1                 ( -9999. ),
+        charge_J1              ( -9999. ),
+        energy_J1              ( -9999. ),
+        flav_J1                ( -9999. ),
+
+        pt_J2                  ( -9999. ),
+        eta_J2                 ( -9999. ),
+        phi_J2                 ( -9999. ),
+        charge_J2              ( -9999. ),
+        energy_J2              ( -9999. ),
+        flav_J2                ( -9999. ),
+
+        pt_J3                  ( -9999. ),
+        eta_J3                 ( -9999. ),
+        phi_J3                 ( -9999. ),
+        charge_J3              ( -9999. ),
+        energy_J3              ( -9999. ),
+        flav_J3                ( -9999. ),
+
         n_constits             ( -9999. ),
 
         //test_vec               { -9999. },
@@ -1001,7 +1023,29 @@ namespace flashgg {
         dijet_dipho_pt   = x->dijet_dipho_pt   ;
         dijet_Mjj        = x->dijet_Mjj        ;
 
-        constit_energy   = x->constit_energy   ;
+        constit_energy   = x->constit_energy;
+
+        pt_J1            = x->pt_J1;
+        eta_J1           = x->eta_J1;
+        phi_J1           = x->phi_J1;
+        charge_J1        = x->charge_J1;
+        energy_J1        = x->energy_J1;
+        flav_J1          = x->energy_J1;
+
+        pt_J2            = x->pt_J2;
+        eta_J2           = x->eta_J2;
+        phi_J2           = x->phi_J2;
+        charge_J2        = x->charge_J2;
+        energy_J2        = x->energy_J2;
+        flav_J2          = x->energy_J2;
+
+        pt_J3            = x->pt_J3;
+        eta_J3           = x->eta_J3;
+        phi_J3           = x->phi_J3;
+        charge_J3        = x->charge_J3;
+        energy_J3        = x->energy_J3;
+        flav_J3          = x->energy_J3;
+
         n_constits       = x->n_constits       ;
         //test_vec         = x->test_vec         ;
 

@@ -178,6 +178,7 @@ from flashgg.MetaData.samples_utils import SamplesManager
 
 process.source = cms.Source ("PoolSource",
                              fileNames = cms.untracked.vstring(
+#2016 - VBF
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Jan25_2020_file1.root',
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Jan25_2020_file2.root',
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Jan26_2020_file3.root',
@@ -187,28 +188,48 @@ process.source = cms.Source ("PoolSource",
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Feb1_2020_file7.root',
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/VBF_uAOD/VBF_20K_uOAD_Feb1_2020_file8.root'
 
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_2020_5Feb_file1.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_5Feb2020_file2.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/GGH_20_4_K_uOAD_Jan26_2020_file3.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/GGH_15K_uOAD_Jan30_2020_file4.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Jan31_2020_file5.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Jan31_2020_file6.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb1_2020_file7.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_5Feb2020_file8.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file9.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file10.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file11.root',
-'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file12.root'
+#2016 - ggH
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_2020_5Feb_file1.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_5Feb2020_file2.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/GGH_20_4_K_uOAD_Jan26_2020_file3.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/GGH_15K_uOAD_Jan30_2020_file4.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Jan31_2020_file5.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Jan31_2020_file6.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb1_2020_file7.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uAOD_5Feb2020_file8.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file9.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file10.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file11.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file12.root'
+
+#2017 - ggH
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_0_AF9B2E6_20K_events.root'
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_1_AF9B32A_15K_events.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_2_05C431A_15K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_3_05C3E36_18K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_4_05C42F4_18K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_5_AF9B2E2_15K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_6_AB64E80_15K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_7_B239D78_15K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_8_AE0F33C_15K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_9_AB64AE2_15K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_10_B23C88C_15K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_11_B23C9D6_15K_events_LOCAL.root',
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_12_B23C846_15K_events_LOCAL.root'
+
+#2017 - VBF
+#"file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/VBF_uAOD_2020_Feb_file_0_7640173_15K_events_LOCAL.root"
 
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190606_100408/0002/myMicroAODOutputFile_2357.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DoubleEG/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-Run2017C-31Mar2018-v1/190606_095024/0001/myMicroAODOutputFile_1330.root'
 #Tests
 #'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/ggH_uAOD_tese_file1.root'
+#'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/ggH_uAOD_2020_Feb_file_0_AF9B2E6.root_all_events_TEST.root'
   )
 )
 
 process.TFileService = cms.Service("TFileService",
-                                   fileName = cms.string("ggH_withGenInfo_Feb2020_all.root"))
+                                   fileName = cms.string("VBF_withGenInfo_Feb2020_2017_test.root"))
 
 import flashgg.Taggers.dumperConfigTools as cfgTools
 from   flashgg.Taggers.tagsDumpers_cfi   import createTagDumper
@@ -262,6 +283,7 @@ new_variables = [
     "dijet_jet2_RMS       := subLeading_rms",
     "dijet_jet1_QGL       := leading_QGL",
     "dijet_jet2_QGL       := subLeading_QGL",
+    "dijet_jet3_QGL       := subSubLeading_QGL",
     "dijet_jet1_pujid_mva := leading_pujidMVA()",
     "dijet_jet2_pujid_mva := subleading_pujidMVA()",
     "dipho_pt             := diPhoton.pt",
@@ -292,7 +314,6 @@ new_variables = [
     #"gen_sublead_flavour          := tagTruth().flavour_GenJ2",
     #"gen_subsublead_flavour          := tagTruth().flavour_GenJ3",
 
-
     "gen_lead_parton_pdgId  :=  tagTruth().pdgId_P1()",
     "gen_sublead_parton_pdgId  :=  tagTruth().pdgId_P2()",
     "gen_subsublead_parton_pdgId  :=  tagTruth().pdgId_P3()",
@@ -317,36 +338,54 @@ new_variables = [
     "gen_sublead_parton_energy       :=  tagTruth().energy_P2()",
     "gen_subsublead_parton_energy    :=  tagTruth().energy_P3()",
 
-    "lead_jet_pt            :=  tagTruth().pt_J1",
-    "sub_lead_jet_pt        :=  tagTruth().pt_J2",
-    "subsub_lead_jet_pt     :=  tagTruth().pt_J3",
+    #"lead_jet_pt            :=  tagTruth().pt_J1",
+    #"sub_lead_jet_pt        :=  tagTruth().pt_J2",
+    #"subsub_lead_jet_pt     :=  tagTruth().pt_J3",
 
-    
+    #"lead_jet_phi            := tagTruth().phi_J1",
+    #"sub_lead_jet_phi        := tagTruth().phi_J2", 
+    #"subsub_lead_jet_phi     := tagTruth().phi_J3",
 
-    "lead_jet_phi            := tagTruth().phi_J1",
-    "sub_lead_jet_phi        := tagTruth().phi_J2", 
-    "subsub_lead_jet_phi     := tagTruth().phi_J3",
+    #"lead_jet_eta            := tagTruth().eta_J1",
+    #"sub_lead_jet_eta        := tagTruth().eta_J2",
+    #"subsub_lead_jet_eta     := tagTruth().eta_J3",
 
-    "lead_jet_eta            := tagTruth().eta_J1",
-    "sub_lead_jet_eta        := tagTruth().eta_J2",
-    "subsub_lead_jet_eta     := tagTruth().eta_J3",
+    #"lead_jet_charge            := tagTruth().charge_J1",
+    #"sub_lead_jet_charge        := tagTruth().charge_J2",
+    #"subsub_lead_jet_charge     := tagTruth().charge_J3",
 
-    "lead_jet_charge            := tagTruth().charge_J1",
-    "sub_lead_jet_charge        := tagTruth().charge_J2",
-    "subsub_lead_jet_charge     := tagTruth().charge_J3",
+    #"lead_jet_energy            :=  tagTruth().energy_J1",
+    #"sub_lead_jet_energy        :=  tagTruth().energy_J2",
+    #"subsub_lead_jet_energy     :=  tagTruth().energy_J3",
 
-    "lead_jet_energy            :=  tagTruth().energy_J1",
-    "sub_lead_jet_energy        :=  tagTruth().energy_J2",
-    "subsub_lead_jet_energy     :=  tagTruth().energy_J3",
+    ##"lead_jet_pdgId            :=  tagTruth().pdgId_J1",
+    ##"sub_lead_jet_pdgId        :=  tagTruth().pdgId_J2",
+    ##"subsub_lead_jet_pdgId     :=  tagTruth().pdgId_J3",
 
-    #"lead_jet_pdgId            :=  tagTruth().pdgId_J1",
-    #"sub_lead_jet_pdgId        :=  tagTruth().pdgId_J2",
-    #"subsub_lead_jet_pdgId     :=  tagTruth().pdgId_J3",
+    "lead_jet_flav            :=  VBFMVA().flav_J1",
+    "sub_lead_jet_flav        :=  VBFMVA().flav_J2",
+    "subsub_lead_jet_flav     :=  VBFMVA().flav_J3",
 
-    "lead_jet_flav            :=  tagTruth().flav_J1",
-    "sub_lead_jet_flav        :=  tagTruth().flav_J2",
-    "subsub_lead_jet_flav     :=  tagTruth().flav_J3",
-    
+    "lead_jet_pt            :=  VBFMVA().pt_J1",
+    "sub_lead_jet_pt        :=  VBFMVA().pt_J2",
+    "subsub_lead_jet_pt     :=  VBFMVA().pt_J3",
+
+    "lead_jet_phi            := VBFMVA.phi_J1",
+    "sub_lead_jet_phi        := VBFMVA.phi_J2", 
+    "subsub_lead_jet_phi     := VBFMVA.phi_J3",
+
+    "lead_jet_eta            := VBFMVA.eta_J1",
+    "sub_lead_jet_eta        := VBFMVA.eta_J2",
+    "subsub_lead_jet_eta     := VBFMVA.eta_J3",
+
+    "lead_jet_charge            := VBFMVA.charge_J1",
+    "sub_lead_jet_charge        := VBFMVA.charge_J2",
+    "subsub_lead_jet_charge     := VBFMVA.charge_J3",
+
+    "lead_jet_energy            :=  VBFMVA().energy_J1",
+    "sub_lead_jet_energy        :=  VBFMVA().energy_J2",
+    "subsub_lead_jet_energy     :=  VBFMVA().energy_J3",
+
     "n_constits               := VBFMVA().n_constits",
     #"test_vector              := VBFMVA().test_vec",
                   

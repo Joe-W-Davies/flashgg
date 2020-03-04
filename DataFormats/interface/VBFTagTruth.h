@@ -87,9 +87,9 @@ namespace flashgg {
         float energy_GenJ3() const { return ( hasSubSubLeadingGenJet() ? subSubLeadingGenJet()->energy() : -9999. ); }
         float pdgId_GenJ3() const { return ( hasSubSubLeadingGenJet() ? subSubLeadingGenJet()->pdgId() : -9999. ); }
         //float flavour_GenJ3() const { return ( hasSubSubLeadingGenJet() ? subSubLeadingGenJet()->partonFlavour() : -9999. ); }
-        //FIXME: do the same thing for the sub sub leading and subleading jets
+        // NOTE: we no longer use this in the dumper as no preselection has been applied
         float pt_J1() const { return ( hasLeadingJet() ? leadingJet()->pt() : -9999. ); }
-        float eta_J1() const { return ( hasLeadingJet()  ? leadingJet()->eta() : -9999. ); }
+        float eta_J1() const { return ( hasLeadingJet() ? leadingJet()->eta() : -9999. ); }
         float phi_J1() const { return ( hasLeadingJet() ? leadingJet()->phi() : -9999. ); }
         float charge_J1() const { return ( hasLeadingJet() ? leadingJet()->charge() : -9999. ); }
         float energy_J1() const { return ( hasLeadingJet() ? leadingJet()->energy() : -9999. ); }

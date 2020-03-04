@@ -23,6 +23,11 @@ class MicroAODCustomize(object):
                                VarParsing.VarParsing.multiplicity.list, # singleton or list
                                VarParsing.VarParsing.varType.string,          # string, int, or float
                                "fileNames")
+        self.options.register ('fileIndex',
+                               10, # default value
+                               VarParsing.VarParsing.multiplicity.singleton, # singleton or list
+                               VarParsing.VarParsing.varType.int,          # string, int, or float
+                               "fileIndex")
         self.options.register ('datasetName',
                                "", # default value
                                VarParsing.VarParsing.multiplicity.singleton, # singleton or list
@@ -107,6 +112,9 @@ class MicroAODCustomize(object):
 
     def parse(self):
         self.options.parseArguments()
+
+    def returnFileIndex(self):
+        return self.fileIndex
 
     # process customization
     def customize(self,process):

@@ -62,6 +62,28 @@ namespace flashgg {
         float dijet_centrality_g ;
 
         float constit_energy;
+
+        float pt_J1;
+        float eta_J1;
+        float phi_J1;
+        float charge_J1;
+        float energy_J1;
+        float flav_J1;
+
+        float pt_J2;
+        float eta_J2;
+        float phi_J2;
+        float charge_J2;
+        float energy_J2;
+        float flav_J2;
+
+        float pt_J3;
+        float eta_J3;
+        float phi_J3;
+        float charge_J3;
+        float energy_J3;
+        float flav_J3;
+
         float n_constits;
 
         //std::vector<float> test_vec ;

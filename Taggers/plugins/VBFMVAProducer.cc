@@ -80,6 +80,28 @@ namespace flashgg {
 
         // add constituent jet info as a test
         float constit_energy_;
+
+        float pt_J1_ ;
+        float eta_J1_;
+        float phi_J1_ ;
+        float charge_J1_ ;
+        float energy_J1_ ;
+        float flav_J1_ ;
+
+        float pt_J2_ ;
+        float eta_J2_ ;
+        float phi_J2_ ;
+        float charge_J2_ ;
+        float energy_J2_ ;
+        float flav_J2_ ;
+
+        float pt_J3_ ;
+        float eta_J3_ ;
+        float phi_J3_ ;
+        float charge_J3_ ;
+        float energy_J3_ ;
+        float flav_J3_ ;
+
         float n_constits_;
         //std::vector<float> test_vec_;
 
@@ -1040,6 +1062,27 @@ namespace flashgg {
         dijet_dy_         = -999.;
         cosThetaStar_     = -999.; 
         constit_energy_   = -999.; 
+
+        pt_J1_ = -999.;
+        eta_J1_ = -999.;
+        phi_J1_ = -999.;
+        charge_J1_ = -999.;
+        energy_J1_ = -999.;
+        flav_J1_ = -999.;
+
+        pt_J2_ = -999.;
+        eta_J2_ = -999.;
+        phi_J2_ = -999.;
+        charge_J2_ = -999.;
+        energy_J2_ = -999.;
+        flav_J2_ = -999.;
+
+        pt_J3_ = -999.;
+        eta_J3_ = -999.;
+        phi_J3_ = -999.;
+        charge_J3_ = -999.;
+        energy_J3_ = -999.;
+        flav_J3_ = -999.;
       
         n_constits_       = -999.;
         //test_vec_.push_back(-999.);
@@ -2045,6 +2088,27 @@ namespace flashgg {
             dijet_centrality_g_  = -999.;
             cosThetaStar_     = -999.; 
             constit_energy_   = -999;
+
+            pt_J1_ = -999.;
+            eta_J1_ = -999.;
+            phi_J1_ = -999.;
+            charge_J1_ = -999.;
+            energy_J1_ = -999.;
+            flav_J1_ = -999.;
+
+            pt_J2_ = -999.;
+            eta_J2_ = -999.;
+            phi_J2_ = -999.;
+            charge_J2_ = -999.;
+            energy_J2_ = -999.;
+            flav_J2_ = -999.;
+
+            pt_J3_ = -999.;
+            eta_J3_ = -999.;
+            phi_J3_ = -999.;
+            charge_J3_ = -999.;
+            energy_J3_ = -999.;
+            flav_J3_ = -999.;
 
             n_constits_       = -999.;
             //test_vec_.push_back(-999.);
@@ -3086,13 +3150,34 @@ namespace flashgg {
                 }
                 if( jet->pt() > 30.0 ){
                   n_jets_count++;
-                  if(n_jets_count==1){
-                    lead_jet_pt_ = jet->pt();
-                    test_lead_jet_eta_ = jet->eta();
-                  }
                   //std::cout << "n_jets_count = : " << n_jets_count <<std::endl;
                   //std::cout << "JET pt is " << jet->pt() << std::endl;
                   if (fjet.hasConstituentInfo()) {
+                    //fill the reco jet info:
+                   if(n_jets_count==1){
+                     pt_J1_ = jet->pt();
+                     eta_J1_ = jet->eta();
+                     phi_J1_ = jet->phi();
+                     charge_J1_ = jet->charge();
+                     energy_J1_ = jet->energy();
+                     flav_J1_ = jet->partonFlavour();
+                     } 
+                   if(n_jets_count==2){
+                     pt_J2_ = jet->pt();
+                     eta_J2_ = jet->eta();
+                     phi_J2_ = jet->phi();
+                     charge_J2_ = jet->charge();
+                     energy_J2_ = jet->energy();
+                     flav_J2_ = jet->partonFlavour();
+                     } 
+                   if(n_jets_count==3){
+                     pt_J3_ = jet->pt();
+                     eta_J3_ = jet->eta();
+                     phi_J3_ = jet->phi();
+                     charge_J3_ = jet->charge();
+                     energy_J3_ = jet->energy();
+                     flav_J3_ = jet->partonFlavour();
+                     } 
 
                     std::vector<float> theConstitInfo = fjet.getConstituentInfo();
                     //test_vec_ = theConstitInfo;
@@ -3134,7 +3219,7 @@ namespace flashgg {
                     }
                     //std::cout << "number of constits passing pt threshol: " << nConstitsAbovePt << std::endl;
                     //Now do a switch statement to unpack vectors
-                    if(n_jets_count==1){//leading jet since pts are ordered
+                    if(n_jets_count==1 ){//leading jet since pts are ordered
                       for(unsigned int i = 0; i< nConstituents; i++){
                         //std::cout << "the counter inside lead jet loop is at: " << i << std::endl;
                         if(i==0){
@@ -4917,6 +5002,27 @@ namespace flashgg {
             mvares.n_rec_jets        = n_jets_count;
             mvares.cosThetaStar      = cosThetaStar_ ;
             mvares.constit_energy    = constit_energy_ ;
+
+            mvares.pt_J1             = pt_J1_ ;
+            mvares.eta_J1            = eta_J1_;
+            mvares.phi_J1            = phi_J1_ ;
+            mvares.charge_J1         = charge_J1_ ;
+            mvares.energy_J1         = energy_J1_ ;
+            mvares.flav_J1           = flav_J1_ ;
+
+            mvares.pt_J2             = pt_J2_ ;
+            mvares.eta_J2            = eta_J2_ ;
+            mvares.phi_J2            = phi_J2_ ;
+            mvares.charge_J2         = charge_J2_ ;
+            mvares.energy_J2         = energy_J2_ ;
+            mvares.flav_J2           = flav_J2_ ;
+
+            mvares.pt_J3             = pt_J3_ ;
+            mvares.eta_J3            = eta_J3_ ;
+            mvares.phi_J3            = phi_J3_ ;
+            mvares.charge_J3         = charge_J3_ ;
+            mvares.energy_J3         = energy_J3_ ;
+            mvares.flav_J3           = flav_J3_ ;
 
             mvares.n_constits        = n_constits_;
             //mvares.test_vec          = test_vec_ ;
