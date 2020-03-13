@@ -8,7 +8,8 @@ flashggVBFMVA = cms.EDProducer('FlashggVBFMVAProducer',
                                DiPhotonTag=cms.InputTag('flashggPreselectedDiPhotons'),
                                #JetTag=cms.InputTag('flashggSelectedJets'),
                                inputTagJets= UnpackedJetCollectionVInputTag,
-                               MVAMethod = cms.string("BDTG"),
+                               #MVAMethod = cms.string("BDTG"),
+                               MVAMethod = cms.string("Multi"),
                                UsePuJetID  = cms.bool(False),
                                UseJetID    = cms.bool(True),
                                merge3rdJet = cms.bool(False),
@@ -27,7 +28,8 @@ flashggVBFMVA = cms.EDProducer('FlashggVBFMVAProducer',
                                #vbfMVAweightfile = cms.FileInPath("flashgg/Taggers/data/TMVAClassification_dijetMVA_76x_24_02_15_BDTG.weights.xml"),
                                #vbfMVAweightfile = cms.FileInPath("flashgg/Taggers/data/TMVA_classification_dijet-mva-80x-ICHEP-v04.weights.xml"),
 #                               vbfMVAweightfile = cms.FileInPath("flashgg/Taggers/data/sklearn_training_moriond17_v8.xml"),
-                               vbfMVAweightfile = cms.FileInPath("flashgg/Taggers/data/dijet-2017-10Jul.xml")
+                               #vbfMVAweightfile = cms.FileInPath("flashgg/Taggers/data/dijet-2017-10Jul.xml")
+                               vbfMVAweightfile = cms.FileInPath("flashgg/Taggers/data/multiclassDijetModel2016.xml")
 )
 # Legacy DiPhoDiJet MVA
 flashggVBFDiPhoDiJetMVA = cms.EDProducer('FlashggVBFDiPhoDiJetMVAProducer',

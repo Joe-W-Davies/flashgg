@@ -203,7 +203,7 @@ process.source = cms.Source ("PoolSource",
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2016/jetConstitFiles/Jan2020/ggH_uAOD/ggH_20K_uOAD_Feb5_2020_file12.root'
 
 #2017 - ggH
-#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_0_AF9B2E6_20K_events.root'
+#'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_0_AF9B2E6_20K_events.root',
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_1_AF9B32A_15K_events.root',
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_2_05C431A_15K_events_LOCAL.root',
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_3_05C3E36_18K_events_LOCAL.root',
@@ -218,13 +218,13 @@ process.source = cms.Source ("PoolSource",
 #'file:/eos/user/d/davies/Hgg/mastersStudents/2017/Feb2020/Files_2017_MicroAOD/ggH_uAOD_2020_Feb_file_12_B23C846_15K_events_LOCAL.root'
 
 #2017 - VBF
-#"file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/VBF_uAOD_2020_Feb_file_0_7640173_15K_events_LOCAL.root"
+"file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/VBF_uAOD_2020_Feb_file_2_F83637E_15K_events_LOCAL.root"
 
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/190606_100408/0002/myMicroAODOutputFile_2357.root'
 #'root://xrootd-cms.infn.it//store/user/spigazzi/flashgg/Era2017_RR-31Mar2018_v2/legacyRun2FullV1/DoubleEG/Era2017_RR-31Mar2018_v2-legacyRun2FullV1-v0-Run2017C-31Mar2018-v1/190606_095024/0001/myMicroAODOutputFile_1330.root'
 #Tests
 #'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/ggH_uAOD_tese_file1.root'
-#'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/ggH_uAOD_2020_Feb_file_0_AF9B2E6.root_all_events_TEST.root'
+#'file:/afs/cern.ch/work/d/davies/flashgg/CMSSW_10_6_1_patch2/src/flashgg/VBF_uAOD_2020_Feb_file_2_F83637E_15K_events_LOCAL.root'
   )
 )
 
@@ -289,6 +289,10 @@ new_variables = [
     "dipho_pt             := diPhoton.pt",
     "dijet_pt             := VBFMVA.dijet_pt",
     "cosThetaStar         := VBFMVA.cosThetaStar",
+ 
+    "VBFMVA_VBF_prob         := VBFMVA.prob_VBF_value()",
+    "VBFMVA_ggH_prob         := VBFMVA.prob_ggH_value()",
+    "VBFMVA_Bkg_prob         := VBFMVA.prob_bkg_value()",
 
     "Flavour_LeadGenJet           := tagTruth().Flav_GenJ1",
     "Flavour_subLeadGenJet           := tagTruth().Flav_GenJ2",

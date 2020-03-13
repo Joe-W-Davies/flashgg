@@ -47,10 +47,6 @@ flashggSigmaMoMpToMTag = cms.EDProducer("FlashggSigmaMpTTagProducer",
 )
 
 
-
-
-
-
 flashggTTHHadronicTag = cms.EDProducer("FlashggTTHHadronicTagProducer",
                                        DiPhotonName=cms.string('flashggPreselectedDiPhotons'),
                                        DiPhotonSuffixes = cms.vstring(''), # nominal and systematic variations

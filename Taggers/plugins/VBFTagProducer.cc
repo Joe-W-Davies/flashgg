@@ -226,6 +226,8 @@ namespace flashgg {
             tag_obj.setDiPhotonIndex( candIndex );
             tag_obj.setSystLabel    ( systLabel_ );
 
+            std::cout << tag_obj.VBFMVA().vbfMvaResult_prob_VBF << std::endl;
+
             tag_obj.includeWeights( *dipho );
             if ( tag_obj.VBFMVA().dijet_Mjj > 0. ) {
 

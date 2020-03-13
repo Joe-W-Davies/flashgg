@@ -1023,11 +1023,17 @@ namespace flashgg {
         // some 3-jet based variables 
         
         float VBFMVAValue() const {return vbfMvaResult_value;}
-        
+        float prob_VBF_value() const {return vbfMvaResult_prob_VBF;}
+        float prob_ggH_value() const {return vbfMvaResult_prob_ggH;}
+        float prob_bkg_value() const {return vbfMvaResult_prob_bkg;}        
+
         // Output
         float vbfMvaResult_value;
         float vbfMvaResult_value_bdt;
         float vbfMvaResult_value_bdtg;
+        float vbfMvaResult_prob_VBF;
+        float vbfMvaResult_prob_ggH;
+        float vbfMvaResult_prob_bkg;
     };
     
     typedef std::map<edm::Ptr<DiPhotonCandidate>, VBFMVAResult> VBFMVAResultMap;
