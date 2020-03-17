@@ -244,7 +244,6 @@ namespace flashgg {
             float phi2 = diPhotons->ptrAt( candIndex )->subLeadingPhoton()->phi();
             float eta2 = diPhotons->ptrAt( candIndex )->subLeadingPhoton()->eta();
             
-            bool hasValidLeadJet  = 0;
             bool hasValidVBFDiJet    = 0;
             bool hasValidVBFTriJet   = 0;
             
@@ -351,7 +350,6 @@ namespace flashgg {
                 }
                 if( jet->pt() > 30.0 ) n_jets_count++;
                 // if the jet's pt is neither higher than the lead jet or sublead jet, then forget it!
-                if(  dijet_indices.first != -1) {hasValidLeadJet = 1;}
                 if( dijet_indices.first != -1 && dijet_indices.second != -1 ) {hasValidVBFDiJet  = 1;}
                 if( hasValidVBFDiJet          && jet_3_index != -1          ) {hasValidVBFTriJet = 1;}
             }
@@ -371,13 +369,12 @@ namespace flashgg {
 
             diPhotonP4s[0] = leadPhoton->p4(); 
             diPhotonP4s[1] = subLeadPhoton->p4(); 
-            dipho_lead_ptoM_        = diPhotonP4s[0].pt()/(diPhotonP4s[0] + diPhotonP4s[1]).M();
-            dipho_sublead_ptoM_     = diPhotonP4s[1].pt()/(diPhotonP4s[0] + diPhotonP4s[1]).M();
-            dipho_leadEta_          = diPhotonP4s[0].eta();
-            dipho_subleadEta_       = diPhotonP4s[1].eta();
-            diphopt_                = (diPhotonP4s[0] + diPhotonP4s[1]).Pt();
 
-            // get trickier variables from diphoMVAResult object
+            // get purely dipho variables from diphoMVAResult object
+            dipho_lead_ptoM_        = diPhotonMVAResult->at(candIndex).leadptom;
+            dipho_sublead_ptoM_     = diPhotonMVAResult->at(candIndex).subleadptom;
+            dipho_leadEta_          = diPhotonMVAResult->at(candIndex).leadeta;
+            dipho_subleadEta_       = diPhotonMVAResult->at(candIndex).subleadeta;
             CosPhi_                 = diPhotonMVAResult->at(candIndex).CosPhi;
             sigmawv_                = diPhotonMVAResult->at(candIndex).sigmawv;
             sigmarv_                = diPhotonMVAResult->at(candIndex).sigmarv;
@@ -385,9 +382,8 @@ namespace flashgg {
             dipho_leadIDMVA_        = diPhotonMVAResult->at(candIndex).leadmva;
             dipho_subleadIDMVA_     = diPhotonMVAResult->at(candIndex).subleadmva;
 
-            if ( hasValidLeadJet  ){
-                jetP4s.push_back(Jets[jetCollectionIndex]->ptrAt(dijet_indices.first)->p4());
-            }
+            diphopt_                = (diPhotonP4s[0] + diPhotonP4s[1]).Pt();
+
 
             if ( hasValidVBFDiJet ) {
                 jetP4s.push_back(Jets[jetCollectionIndex]->ptrAt(dijet_indices.first)->p4());
@@ -412,15 +408,6 @@ namespace flashgg {
                 
                 //std::cout << "Third jet merge info:" << std::endl;
                 //std::cout << setw(12) << dR_13 << setw(12) << dR_23 << setw(12) << indexToMergeWithJ3 << std::endl;
-            }
-            if ( hasValidLeadJet ){
-                dijet_leadEta_           = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->eta();
-                dijet_leadJPt_           = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->pt();
-                dijet_leadPUMVA_         = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->puJetIdMVA();
-                dijet_leadDeltaPhi_      = deltaPhi( Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->phi(), (diPhotonP4s[0]+diPhotonP4s[1]).phi());
-                dijet_leadDeltaEta_      = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->eta() - (diPhotonP4s[0]+diPhotonP4s[1]).eta();
-                
-                mvares.leadJet_ptr    = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first );
             }
            
             if( hasValidVBFDiJet ) {
@@ -485,8 +472,13 @@ namespace flashgg {
 
                 //mvares.diphoton       = *diPhotons->ptrAt( candIndex );
             } else if (dijet_indices.first != -1) {
-                mvares.leadJet_ptr    = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first );
-                mvares.subleadJet_ptr = edm::Ptr<flashgg::Jet>();
+                dijet_leadEta_           = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->eta();
+                dijet_leadJPt_           = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->pt();
+                dijet_leadPUMVA_         = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->puJetIdMVA();
+                dijet_leadDeltaPhi_      = deltaPhi( Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->phi(), (diPhotonP4s[0]+diPhotonP4s[1]).phi());
+                dijet_leadDeltaEta_      = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first )->eta() - (diPhotonP4s[0]+diPhotonP4s[1]).eta();
+                mvares.leadJet_ptr       = Jets[jetCollectionIndex]->ptrAt( dijet_indices.first );
+                mvares.subleadJet_ptr    = edm::Ptr<flashgg::Jet>();
             } else {
                 mvares.leadJet_ptr    = edm::Ptr<flashgg::Jet>();
                 mvares.subleadJet_ptr = edm::Ptr<flashgg::Jet>();
